@@ -1,3 +1,13 @@
+html{
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+
+.nav{
+    position: sticky;
+    top: 0%;
+}
 
 ul {
     list-style-type: none;
@@ -45,6 +55,6 @@ ul {
     background-color: white;
     width: 6px;
     height: 200px;
-    border-radius: 4px;
+    border-radius: 5px;
     border: solid 1px black;
   }
