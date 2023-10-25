@@ -3,6 +3,11 @@ html{
     scroll-padding-top: 90px;
 }
 
+body{
+  margin: 0px;
+  padding: 0px;
+  background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(228,126,126,1) 80%, rgba(205,17,17,1) 100%);
+}
 
 .nav{
     position: sticky;
