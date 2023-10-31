@@ -13,7 +13,7 @@
         <div class="containerNav">
             <h1> Judo </h1>
             <ul>
-                <li> <a href="">Noticias</a></li>
+                <li> <a href="#boxes">História</a></li>
                 |
                 <li><a>Sobre mim</a></li>
                 |
@@ -24,90 +24,126 @@
         </div>
     </div>
 
-<div class="slider">
+    <div class="slider">
 
-    <div class="slides">
+        <div class="slides" id="slidesSmooth">
 
-        <input type="radio" name="radio_btn" id="radio1">
-        <input type="radio" name="radio_btn" id="radio2">
-        <input type="radio" name="radio_btn" id="radio3">
-        <input type="radio" name="radio_btn" id="radio4">
-        <input type="radio" name="radio_btn" id="radio5">
+            <input type="radio" name="radio_btn" id="radio1">
+            <input type="radio" name="radio_btn" id="radio2">
+            <input type="radio" name="radio_btn" id="radio3">
+            <input type="radio" name="radio_btn" id="radio4">
+            <input type="radio" name="radio_btn" id="radio5">
 
-        <div class="slide first">
-            <img src="https://i0.wp.com/judorio.org/wp-content/uploads/2023/10/KUL_2292-1698089493-1698089493.jpg?resize=800%2C445&ssl=1" alt="Atletas disputando o gran slan de judô">
-        </div>
-        <div class="slide">
-            <img src="https://cbj.com.br/pt/img/noticia/imagem/8081/grande/" alt="Atletas disputando o gran slan de judô">
-        </div>
-        <div class="slide">
-            <img src="https://ipeclube.com.br/files/imagens/artigos/000_judooooo.png" alt="Atletas disputando o gran slan de judô">
-        </div>
-        <div class="slide">
-            <img src="https://ogimg.infoglobo.com.br/in/25135106-240-31c/FT1086A/E7me-59VUAAJeaN.jpg" alt="Atletas disputando o gran slan de judô">
-        </div>
-        <div class="slide">
-            <img src="https://www.aen.pr.gov.br/sites/default/arquivos_restritos/files/imagem/2023-10/385729205_1007292263925347_3676628797215865217_n_0.jpg" alt="Atletas disputando o gran slan de judô">
+            <div class="slide first">
+                <img src="https://i0.wp.com/judorio.org/wp-content/uploads/2023/10/KUL_2292-1698089493-1698089493.jpg?resize=800%2C445&ssl=1"
+                    alt="Atletas disputando o gran slan de judô">
+            </div>
+            <div class="slide">
+                <img src="https://cbj.com.br/pt/img/noticia/imagem/8081/grande/"
+                    alt="Atletas disputando o gran slan de judô">
+            </div>
+            <div class="slide">
+                <img src="https://ipeclube.com.br/files/imagens/artigos/000_judooooo.png"
+                    alt="Atletas disputando o gran slan de judô">
+            </div>
+            <div class="slide">
+                <img src="https://ogimg.infoglobo.com.br/in/25135106-240-31c/FT1086A/E7me-59VUAAJeaN.jpg"
+                    alt="Atletas disputando o gran slan de judô">
+            </div>
+            <div class="slide">
+                <img src="https://www.aen.pr.gov.br/sites/default/arquivos_restritos/files/imagem/2023-10/385729205_1007292263925347_3676628797215865217_n_0.jpg"
+                    alt="Atletas disputando o gran slan de judô">
+            </div>
+
+            <div class="navigation-auto">
+                <div class="auto-btn1"></div>
+                <div class="auto-btn2"></div>
+                <div class="auto-btn3"></div>
+                <div class="auto-btn4"></div>
+                <div class="auto-btn5"></div>
+            </div>
+
         </div>
 
-        <div class="navigation-auto">
-            <div class="auto-btn1"></div>
-            <div class="auto-btn2"></div>
-            <div class="auto-btn3"></div>
-            <div class="auto-btn4"></div>
-            <div class="auto-btn5"></div>
+        <div class="manual-navigation">
+            <label for="radio1" class="manual-btn"></label>
+            <label for="radio2" class="manual-btn"></label>
+            <label for="radio3" class="manual-btn"></label>
+            <label for="radio4" class="manual-btn"></label>
+            <label for="radio5" class="manual-btn"></label>
         </div>
 
     </div>
+    <script src="js/script.js"></script>
 
-    <div class="manual-navigation">
-        <label for="radio1" class="manual-btn"></label>
-        <label for="radio2" class="manual-btn"></label>
-        <label for="radio3" class="manual-btn"></label>
-        <label for="radio4" class="manual-btn"></label>
-        <label for="radio5" class="manual-btn"></label>
+    <div class="container">
+        <div class="card">
+            <div class="imgBx">
+                <img src="img/jigoroKano.jpg" alt="">
+            </div>
+            <div class="content" id="boxes">
+                <h2>Card Uno</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Nostrum est repellat ipsa iste voluptates voluptas sunt
+                    saepe in et rem eum laboriosam, doloribus officia.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="imgBx">
+                <img src="img/historiaJudo.jpg" alt="">
+            </div>
+            <div class="content">
+                <h2>Card Uno</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Nostrum est repellat ipsa iste voluptates voluptas sunt
+                    saepe in et rem eum laboriosam, doloribus officia.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="imgBx">
+                <img src="img/filosofiaJudo.webp" alt="">
+            </div>
+            <div class="content">
+                <h2>Card Uno</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Nostrum est repellat ipsa iste voluptates voluptas sunt
+                    saepe in et rem eum laboriosam, doloribus officia.</p>
+            </div>
+        </div>
     </div>
 
-</div>
-<script src="js/script.js"></script>
-
-<div class="container">
-    <div class="card">
-        <div class="imgBx">
-            <img src="img/jigoroKano.jpg" alt="">
-        </div>
-        <div class="content">
-            <h2>Card Uno</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Nostrum est repellat ipsa iste voluptates voluptas sunt 
-            saepe in et rem eum laboriosam, doloribus officia.</p>
-        </div>
+    <div class="containerBanner">
+        <div class="imagem"><img src="" alt=""></div>
+        <div class="linha"></div>
+        <div class="texto"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit quidem repudiandae eveniet at, officiis quaerat deleniti laborum commodi modi consequuntur illum veritatis! Fugiat corporis, similique cupiditate obcaecati pariatur modi dignissimos!</p></div>
     </div>
 
-    <div class="card">
-        <div class="imgBx">
-            <img src="img/historiaJudo.jpg" alt="">
-        </div>
-        <div class="content">
-            <h2>Card Uno</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Nostrum est repellat ipsa iste voluptates voluptas sunt 
-                saepe in et rem eum laboriosam, doloribus officia.</p>
-        </div>
+    <div class="containerBanner">
+        <div class="texto"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta unde sapiente ipsam iure dolore, ad perferendis. Consequuntur, veritatis exercitationem unde aperiam eos placeat id repudiandae voluptates soluta aliquam facilis quia.</p></div>
+        <div class="linha"></div>
+        <div class="imagem"><img src="" alt=""></div>
     </div>
 
-    <div class="card">
-        <div class="imgBx">
-            <img src="img/filosofiaJudo.webp" alt="">
-        </div>
-        <div class="content">
-            <h2>Card Uno</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Nostrum est repellat ipsa iste voluptates voluptas sunt 
-                saepe in et rem eum laboriosam, doloribus officia.</p>
-        </div>
+    <div class="containerBanner">
+        <div class="imagem"><img src="" alt=""></div>
+        <div class="linha"></div>
+        <div class="texto"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam sunt ad omnis voluptatem, error eveniet facilis incidunt, iste aperiam placeat quia soluta deserunt, dolor non? Eius amet maxime sed velit.</p></div>
     </div>
-</div>
+
+    <div class="containerBanner">
+        <div class="texto"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, dolor sit? Magnam pariatur, tempora maiores soluta ipsa facere ex doloremque hic sit reprehenderit ipsum necessitatibus tenetur. Architecto recusandae obcaecati commodi?</p></div>
+        <div class="linha"></div>
+        <div class="imagem"><img src="" alt=""></div>
+    </div>
+
+    <div class="containerBanner">
+        <div class="imagem"><img src="" alt=""></div>
+        <div class="linha"></div>
+        <div class="texto">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur alias distinctio deserunt, molestias molestiae soluta esse similique quibusdam temporibus quas corrupti beatae ducimus corporis? Sunt distinctio ratione inventore? Quidem, optio.</div>
+    </div>
+
 
 </body>
 
