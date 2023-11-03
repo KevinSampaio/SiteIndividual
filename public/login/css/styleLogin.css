@@ -14,7 +14,6 @@ body {
   color: #000000;
   overflow-x: hidden;
   font-family: "Poppins", sans-serif;
-  background-image: url("./img/body-bg-img.png");
   background-size: cover;
   background-repeat: no-repeat;
   padding: 1em;
