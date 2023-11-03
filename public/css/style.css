@@ -245,7 +245,7 @@ body {
 }
 
 .footer-dark {
-  padding:50px 0;
+  padding:40px 0;
   color:#f0f9ff;
   background-color:#282d32;
 }
@@ -316,8 +316,25 @@ body {
   margin-bottom:0;
 }
 
-.footer .container .row{
+.row{
+  width: 100%;
   display: flex;
   justify-content: space-evenly;
+  align-items: center;
+  padding: 10px;
 }
+
+.icons{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+}
+
+/* .copy{
+  width: 100%;
+  display: flex;
+  justify-content: start;
+} */
 
