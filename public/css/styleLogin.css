@@ -57,7 +57,7 @@ body {
 }
 
 .email {
-  margin: 3em 0 2em;
+  margin: 2em 0 2em;
 }
 
 .input-container {
@@ -87,7 +87,7 @@ body {
   color: #1a1a1a;
 }
 
-.form input[type="submit"] {
+.form button{
   margin-top: 2em;
   border: none;
   outline: none;
@@ -99,12 +99,13 @@ body {
   border-radius: 0.8em;
   background: #7f60e8;
   cursor: pointer;
+  align-items: center;
 }
 
-.form input[type="submit"]:hover {
+.form button:hover{
   opacity: 0.9;
 }
 
-.form input[type="submit"]:focus {
+.form button:focus{
   box-shadow: 0 0 0 4px #8060e875;
 }
