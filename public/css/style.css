@@ -102,16 +102,15 @@ li:hover {
 }
 
 .slide img{
-  width: 1877px;
+  width: 1550px;
 }
 
 .manual-navigation{
   position: absolute;
-  width: 800px;
-  margin-top: -40px;
+  width: 100%;
+  margin-top: -165px;
   display: flex;
   justify-content: center;
-  margin-left: 500px;
 }
 
 .manual-btn{
@@ -156,11 +155,10 @@ li:hover {
 
 .navigation-auto{
   position: absolute;
-  width: 800px;
+  width: 100%;
   display: flex;
   justify-content: center;
-  margin-left: 500px;
-  margin-top: 760px;
+  margin-top: 635px;
 }
 
 .navigation-auto div:not(:last-child){
@@ -188,7 +186,6 @@ li:hover {
 }
 
 .container {
-  margin-top: 100px;
   position: relative;
   width: 100%;
   display: flex;
