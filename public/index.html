@@ -1,41 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,700,0,0" />
 </head>
 
 <body>
-    <div class="navbar">
-        <div class="containerNav">
+    <nav id="navbar" class="navbar">
+        <a href="#home"> Home </a>|
+        <a href="#historia"> História </a>|
+        <a href="#sobreMim"> Sobre mim </a>|
+        <a href="#rodape"> Redes Sociais </a>|
+        <a href="login.html"> Logar </a>|
+        <a href="register.html"> Registrar</a>
+    </nav>
+    <script src="js/main.js"></script>
 
-            <ul>
-                <a href="#historia">
-                    <li>História</li>
-                </a>
-                |
-                <a href="#sobreNos">
-                    <li>Sobre mim</li>
-                </a>
-                |
-                <a href="#suporte">
-                    <li>Redes Socias</li>
-                </a>
-                |
-                <a href="login.html">
-                    <li>Login</li>
-                </a>
-                |
-                <a href="register.html">
-                    <li>Cadastro</li>
-                </a>
-            </ul>
-        </div>
-    </div>
-
-    <div class="slider">
+    <div class="slider" id="home">
 
         <div class="slides" id="slidesSmooth">
 
@@ -46,24 +35,19 @@
             <input type="radio" name="radio_btn" id="radio5">
 
             <div class="slide first">
-                <img src="img/inicio.png"
-                    alt="Atletas disputando o gran slan de judô">
+                <img src="img/inicio.png" alt="Atletas disputando o gran slan de judô">
             </div>
             <div class="slide">
-                <img src="img/4 medalhas.png"
-                    alt="Atletas disputando o gran slan de judô">
+                <img src="img/4 medalhas.png" alt="Atletas disputando o gran slan de judô">
             </div>
             <div class="slide">
-                <img src="img/samantha soares.png"
-                    alt="Atletas disputando o gran slan de judô">
+                <img src="img/samantha soares.png" alt="Atletas disputando o gran slan de judô">
             </div>
             <div class="slide">
-                <img src="img/judo_brasil_prata_equipes_pan_2023.png"
-                    alt="Atletas disputando o gran slan de judô">
+                <img src="img/judo_brasil_prata_equipes_pan_2023.png" alt="Atletas disputando o gran slan de judô">
             </div>
             <div class="slide">
-                <img src="img/campanhaJudo.png"
-                    alt="Atletas disputando o gran slan de judô">
+                <img src="img/campanhaJudo.png" alt="Atletas disputando o gran slan de judô">
             </div>
 
             <div class="navigation-auto">
@@ -87,14 +71,17 @@
     </div>
     <script src="js/script.js"></script>
 
-    <div class="container" id="historia">
+    <div class="container" id="historia" class="section">
         <div class="card">
             <div class="imgBx">
                 <img src="img/jigoroKano.jpg" alt="">
             </div>
             <div class="content">
                 <h2>Idealizador</h2>
-                <p>Jigoro Kano (1860-1938) foi um educador, filósofo e fundador do judô, uma das artes marciais mais praticadas e respeitadas em todo o mundo. Ele é uma figura fundamental na história do judô e deixou um legado duradouro não apenas no mundo das artes marciais, mas também na educação e no desenvolvimento pessoal.</p>
+                <p>Jigoro Kano (1860-1938) foi um educador, filósofo e fundador do judô, uma das artes marciais mais
+                    praticadas e respeitadas em todo o mundo. Ele é uma figura fundamental na história do judô e deixou
+                    um legado duradouro não apenas no mundo das artes marciais, mas também na educação e no
+                    desenvolvimento pessoal.</p>
             </div>
         </div>
 
@@ -104,7 +91,9 @@
             </div>
             <div class="content">
                 <h2>História</h2>
-                <p>O judô é uma arte marcial japonesa que foi desenvolvida no final do século XIX por Jigoro Kano. Kano combinou técnicas de luta tradicionais japonesas, como o jiu-jitsu, com suas próprias inovações e filosofias para criar o judô.</p>
+                <p>O judô é uma arte marcial japonesa que foi desenvolvida no final do século XIX por Jigoro Kano. Kano
+                    combinou técnicas de luta tradicionais japonesas, como o jiu-jitsu, com suas próprias inovações e
+                    filosofias para criar o judô.</p>
             </div>
         </div>
 
@@ -114,12 +103,14 @@
             </div>
             <div class="content">
                 <h2>Filosofia</h2>
-                <p>A filosofia por trás do judô é baseada em princípios como a máxima eficácia com o mínimo de esforço (seiryoku zen'yo) e a utilização da força do oponente contra ele mesmo (jita kyoei). Kano também enfatizou o desenvolvimento pessoal e moral através da prática do judô.</p>
+                <p>A filosofia por trás do judô é baseada em princípios como a máxima eficácia com o mínimo de esforço
+                    (seiryoku zen'yo) e a utilização da força do oponente contra ele mesmo (jita kyoei). Kano também
+                    enfatizou o desenvolvimento pessoal e moral através da prática do judô.</p>
             </div>
         </div>
     </div>
 
-    <div class="containerBanner">
+    <div class="containerBanner" id="sobreMim" class="section">
         <div class="imagem"><img src="" alt=""></div>
         <div class="linha"></div>
         <div class="texto">
@@ -167,42 +158,45 @@
             corporis? Sunt distinctio ratione inventore? Quidem, optio.</div>
     </div>
 
-    <div class="footer-dark">
+    <div class="footer-dark" id="rodape" class="section">
         <footer class="footer">
             <div class="container">
                 <div class="row">
                     <div class="col-sm-6 col-md-3 item">
                         <h3>Serviços</h3>
                         <ul>
-                            <li><a href="#">Web design</a></li>
-                            <li><a href="#">Development</a></li>
-                            <li><a href="#">Mentoring</a></li>
+                            <li><a href="register.html">Cadastrar alunos</a></li>
+                            <li><a href="register.html">Estatísticas dos atletas</a></li>
+                            <li><a href="register.html">Planos de dieta</a></li>
                         </ul>
                     </div>
                     <div class="col-sm-6 col-md-3 item">
                         <h3>Sobre</h3>
                         <ul>
-                            <li><a href="#">Empresa</a></li>
-                            <li><a href="#">Equipe</a></li>
-                            <li><a href="#">Carreiras</a></li>
+                            <li><a href="#sobreMim">Idealizador</a></li>
+                            <li><a href="#">Agradecimento</a></li>
+                            <li><a href="#">Futuro</a></li>
                         </ul>
                     </div>
-                    <div class="col-md-6 item text">
-                        <h3>Nome da Empresa</h3>
-                        <p></p>
+                    <div class="col-md-6-item-text">
+                        <h3>Projeto Social Kevin Peters</h3>
+                        <p>O Projeto Social Kevin Peters é uma iniciativa comunitária dedicada à promoção do judô como uma ferramenta de desenvolvimento pessoal, físico e mental para jovens e crianças de todas as idades. Este projeto visa criar um ambiente inclusivo, educativo e seguro onde os participantes possam aprender os princípios do judô, bem como desenvolver habilidades que os ajudem a enfrentar os desafios da vida.</p>
                     </div>
                 </div>
                 <div class="icons">
                     <div class="col-item-social">
                         <a href="https://github.com/KevinSampaio"><i class="icon ion-social-github">
-                            <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png"></i></a>
+                                <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png"></i></a>
                         <a href="https://www.instagram.com/kevinpeters_s/"><i class="icon ion-social-instagram">
-                            <img src="https://cdn-icons-png.flaticon.com/512/2175/2175198.png"></i></a>
+                                <img src="https://cdn-icons-png.flaticon.com/512/2175/2175198.png"></i></a>
                         <a href="https://www.linkedin.com/in/kevin-sampaio-49a5201b3"><i
                                 class="icon ion-social-linkedin">
-                            <img src="https://cdn-icons-png.flaticon.com/512/1384/1384014.png"></i></a>
-                        <a href="https://wa.me/5511951382929?text=Ol%C3%A1+Kevin+Sampaio%2C+vi+seu+site+na+internet+e+gostaria+de+fazer+uma+pergunta"><i class="icon ion-social-whatsapp">
-                            <img src="https://cdn.icon-icons.com/icons2/2428/PNG/512/whatsapp_black_logo_icon_147050.png"></i></a>
+                                <img src="https://cdn-icons-png.flaticon.com/512/1384/1384014.png"></i></a>
+                        <a
+                            href="https://wa.me/5511951382929?text=Ol%C3%A1+Kevin+Sampaio%2C+vi+seu+site+na+internet+e+gostaria+de+fazer+uma+pergunta"><i
+                                class="icon ion-social-whatsapp">
+                                <img
+                                    src="https://cdn.icon-icons.com/icons2/2428/PNG/512/whatsapp_black_logo_icon_147050.png"></i></a>
                     </div>
                 </div>
                 <div class="copy">
@@ -210,6 +204,7 @@
                 </div>
             </div>
         </footer>
+
 </body>
 
 </html>

@@ -16,50 +16,46 @@ body {
   background: #16384c;
 }
 
-.navbar .containerNav {
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
   display: flex;
   align-items: center;
+  gap: 16px;
+  padding: 0 auto;
   width: 100%;
-  background-color: #763A5A;
-  height: 70px;
-}
-
-.navbar .active{
-  box-shadow: 0px 0px 10px black;
-  opacity: 0.9;
-}
-
-.navbar{
-  position: sticky;
-  top: 0%; 
-  transition: all .4s ease-in-out;
+  height: 72px;
+  background: #fff;
+  box-shadow: 0 0 10px rgb(0 0 0 / 10%);
   z-index: 2;
-}
-
-
-.containerNav a {
-  color: #fff;
-  text-decoration: none;
-}
-
-.containerNav ul {
-  width: 100%;
-  list-style: none;
-  display: flex;
-  font-weight: bold;
   justify-content: end;
-  color: #FFF;
 }
 
-
-li {
-  position: relative;
-  display: block;
-  transition: 0.5s;
-  cursor: pointer;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  margin: 0px 10px 0px 10px;
+nav a {
+  color: inherit;
+  text-decoration: none;
+  transition: 0.3s;
+  font-size: 16px;
+  font-weight: 600;
+  margin-right: 10px;
 }
+
+a::after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 3px;
+  left: 0;
+  transition: transform 0.55;
+  transform: scaleX(0);
+  transform-origin: right;
+  background-color: rgb(172, 100, 239);
+}
+
+a:hover {
+  color: rgb(172, 100, 239);
+} 
 
 li::after {
   position: absolute;
@@ -75,7 +71,7 @@ li::after {
 
 li:hover {
   color: #000;
-}
+} 
 
 
 .slider{
@@ -357,6 +353,18 @@ li:hover {
 .col-item-social img{
 width: 50px;
 height: 50px;
+}
+
+.col-md-6-item-text h3{
+  margin-top: 50px;
+}
+
+.col-md-6-item-text p{
+  font-size: 13px;
+  text-align: justify;
+  width: 500px;
+  color:#f0f9ff;
+  opacity:0.6;
 }
 
 /* .copy{
