@@ -116,3 +116,19 @@ body.open .sidebar button > span {
   opacity: 1;
   animation: appear 0.3s both;
 }
+
+.botaoinserir{
+  background-color: #02d0d0;
+}
+
+.botaodeletar{
+  background-color: #02d0d0;
+}
+
+.botaoselecionar{
+  background-color: #02d0d0;
+}
+
+.botaoconsultar{
+  background-color: #02d0d0;
+}

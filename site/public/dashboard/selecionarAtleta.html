@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap"
     rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="../css/styles.css" />
 </head>
 
 <body>
@@ -20,30 +20,30 @@
         <button type="button" class="sidebar-burger" onclick="toggleSidebar()"></button>
       </header>
       <nav class="sidebar-nav">
-        <button type="button">
-          <img src="./assets/icon-home.svg" />
+        <button type="button" onclick="home()">
+          <img src="../assets/icon-home.svg" />
           <span>Home</span>
         </button>
-        <button type="button">
-          <img src="assets/adicionar_usuario.png" />
+        <button type="button" onclick="inserirAluno()">
+          <img src="../assets/adicionar_usuario.png" />
           <span style="animation-delay: 0.1s">Inserir</span>
         </button>
-        <button type="button">
-          <img src="assets/delete.png" />
+        <button type="button" onclick="deletarAluno()">
+          <img src="../assets/delete.png" />
           <span style="animation-delay: 0.2s">Deletar</span>
         </button>
-        <button type="button">
-          <img src="assets/pessoas.png" />
+        <button type="button" onclick="selecionarAluno()" class="botaoselecionar">
+          <img src="../assets/pessoas.png" />
           <span style="animation-delay: 0.3s">Consultar</span>
         </button>
-        <button type="button">
-          <img src="assets/cuidados-de-saude.png" />
+        <button type="button" onclick="consultarIMC()">
+          <img src="../assets/cuidados-de-saude.png" />
           <span style="animation-delay: 0.3s">IMC</span>
         </button>
       </nav>
       <footer class="sidebar-footer">
-        <button type="button">
-          <img src="assets/saida.png" />
+        <button type="button" onclick="sair()">
+          <img src="../assets/saida.png" />
           <span>Logout</span>
         </button>
       </footer>
@@ -51,8 +51,6 @@
   </aside>
 
 </body>
-
 </html>
-<script type="text/javascript">
-  const toggleSidebar = () => document.body.classList.toggle("open");
-</script>
+
+<script src="../js/dashboards.js"></script>

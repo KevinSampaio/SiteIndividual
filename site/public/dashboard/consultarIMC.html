@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="../css/styles.css" />
+</head>
+
+<body>
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+      <header class="sidebar-header">
+        <button type="button" class="sidebar-burger" onclick="toggleSidebar()"></button>
+      </header>
+      <nav class="sidebar-nav">
+        <button type="button" onclick="home()">
+          <img src="../assets/icon-home.svg" />
+          <span>Home</span>
+        </button>
+        <button type="button" onclick="inserirAluno()">
+          <img src="../assets/adicionar_usuario.png" />
+          <span style="animation-delay: 0.1s">Inserir</span>
+        </button>
+        <button type="button" onclick="deletarAluno()">
+          <img src="../assets/delete.png" />
+          <span style="animation-delay: 0.2s">Deletar</span>
+        </button>
+        <button type="button" onclick="selecionarAluno()">
+          <img src="../assets/pessoas.png" />
+          <span style="animation-delay: 0.3s">Consultar</span>
+        </button>
+        <button type="button" onclick="consultarIMC()" class="botaoconsultar">
+          <img src="../assets/cuidados-de-saude.png" />
+          <span style="animation-delay: 0.3s">IMC</span>
+        </button>
+      </nav>
+      <footer class="sidebar-footer">
+        <button type="button" onclick="sair()">
+          <img src="../assets/saida.png" />
+          <span>Logout</span>
+        </button>
+      </footer>
+    </div>
+  </aside>
+
+</body>
+</html>
+
+<script src="../js/dashboards.js"></script>
