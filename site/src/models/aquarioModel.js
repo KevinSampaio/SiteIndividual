@@ -1,16 +1,16 @@
 var database = require("../database/config");
 
-function buscarAquariosPorEmpresa(empresaId) {
+function buscarAquariosPorEmpresa(equipeId) {
 
-  instrucaoSql = `select * from aquario a where fk_empresa = ${empresaId}`;
+  instrucaoSql = `select * from equipe where fk_equipe = ${equipeId}`;
 
   console.log("Executando a instrução SQL: \n" + instrucaoSql);
   return database.executar(instrucaoSql);
 }
 
-function cadastrar(empresaId, descricao) {
+function cadastrar(equipeId, nomeEquipe) {
   
-  instrucaoSql = `insert into (descricao, fk_empresa) aquario values (${descricao}, ${empresaId})`;
+  instrucaoSql = `insert into (nomeEquipe, fk_equipe ) equipe values (${nomeEquipe}, ${equipeId})`;
 
   console.log("Executando a instrução SQL: \n" + instrucaoSql);
   return database.executar(instrucaoSql);

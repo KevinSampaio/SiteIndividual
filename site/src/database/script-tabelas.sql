@@ -119,3 +119,54 @@ EXEC sys.sp_addrolemember @rolename = N'db_datawriter',
 
 EXEC sys.sp_addrolemember @rolename = N'db_datareader',
 @membername = N'usuarioParaAPIWebDataViz_datawriter_datareader';
+
+
+
+
+
+create database judoarte;
+
+use judoarte;
+
+CREATE TABLE equipe (
+	id INT PRIMARY KEY AUTO_INCREMENT,
+	nomeEquipe VARCHAR(50),
+	cnpj CHAR(14)
+);
+
+CREATE TABLE usuario (
+	id INT PRIMARY KEY AUTO_INCREMENT,
+	nome VARCHAR(50),
+    cpf char(11),
+	email VARCHAR(50),
+	senha VARCHAR(50),
+	fk_equipe INT,
+	FOREIGN KEY (fk_equipe) REFERENCES equipe(id)
+);
+
+CREATE TABLE aluno (
+	id INT PRIMARY KEY AUTO_INCREMENT,
+	nome VARCHAR(50),
+	dtNascimento DATE,
+    faixa VARCHAR(45),
+    peso decimal,
+    altura decimal,
+    fk_usuario INT,
+    FOREIGN KEY (fk_usuario) REFERENCES usuario(id),
+	fk_equipe INT,
+	FOREIGN KEY (fk_equipe) REFERENCES equipe(id)
+);
+
+CREATE TABLE endereco (
+	id INT PRIMARY KEY AUTO_INCREMENT,
+	cep CHAR(8),
+	fk_aluno int,
+    FOREIGN KEY (fk_aluno) REFERENCES aluno(id)
+);
+
+insert into equipe (nomeEquipe, cnpj) values 
+('Equipe 1', '00000000000000'),
+('Equipe 2', '11111111111111'),
+('Equipe 3', '22222222222222'),
+('Equipe 4', '33333333333333'),
+('Equipe 5', '44444444444444');
