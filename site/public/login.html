@@ -20,6 +20,8 @@
                 <span id="mensagem_erro"></span>
             </div>
 
+            <div id="div_erros_login"></div>
+
         <div class="form-wrapper flex-container">
             <div action="" class="form">
                 <h1 class="form-title">Login</h1>
@@ -35,13 +37,11 @@
                         <input  id="senha_input" type="password" placeholder="Senha">
                     </div>
                 </div>
+                <button onclick="entrar()">Login</button>
+
                 <div id="div_aguardar" class="loading-div">
                     <img src="./assets/aguarde-pink2.gif" id="loading-gif" />
                   </div>
-                  
-                <div id="div_erros_login"></div>
-
-                <button onclick="entrar()">Login</button>
             </div>
         </div>
     </body>
@@ -91,10 +91,9 @@
                     sessionStorage.NOME_USUARIO = json.nome;
                     sessionStorage.CPF_USUARIO = json.cpf;
                     sessionStorage.ID_USUARIO = json.id;
-                    sessionStorage.AQUARIOS = JSON.stringify(json.aquarios)
 
                     setTimeout(function () {
-                        window.location = "./dashboard/dashboard.html";
+                        window.location.href = "./dashboard/dashboard.html";
                     }, 1000); // apenas para exibir o loading
 
                 });
@@ -112,6 +111,8 @@
         }).catch(function (erro) {
             console.log(erro);
         })
+
+        return false; 
     }
 
     function sumirMensagem() {

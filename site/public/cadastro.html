@@ -195,7 +195,7 @@
             .then(function (resposta) {
                 resposta.json().then((Equipe) => {
                     Equipe.forEach((equipe) => {
-                        listaEquipe.innerHTML += `<option value='${equipe.id}'>${equipe.cnpj}</option>`;
+                        listaEquipe.innerHTML += `<option value='${equipe.id}'>${equipe.nomeEquipe}</option>`;
                     });
                 });
             })
