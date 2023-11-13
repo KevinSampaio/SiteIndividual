@@ -14,7 +14,8 @@
 </head>
 
 <body>
-    <nav id="navbar" class="navbar">
+    <nav id="antes" class="navbar">
+        <img src="assets/WhatsApp Image 2023-11-11 at 15.09.44.jpeg" alt="">
         <a href="#home"> Home </a>|
         <a href="#historia"> História </a>|
         <a href="#sobreMim"> Sobre mim </a>|
@@ -22,7 +23,6 @@
         <a href="login.html"> Login </a>|
         <a href="cadastro.html"> Cadastra-se</a>
     </nav>
-    <script src="js/main.js"></script>
 
     <div class="slider" id="home">
 
@@ -208,3 +208,24 @@
 </body>
 
 </html>
+
+<script>
+    window.onscroll = scroll;
+
+function scroll() {
+  var scrollTop = window.pageYOffset;
+  if (scrollTop > 190) {
+    try {
+      document.getElementById('antes').id = 'depois'
+    } catch (e) { 
+      false 
+    }
+  } else {
+    try {
+      document.getElementById('depois').id = 'antes'
+    } catch (e) { 
+      false
+    }
+  }
+}
+</script>
