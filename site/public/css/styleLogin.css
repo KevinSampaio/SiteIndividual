@@ -162,6 +162,7 @@ a:hover {
 .alerta_erro{
   display: flex;
   justify-content: flex-end;
+  margin-top: 160px;
 }
 
 .card_erro {

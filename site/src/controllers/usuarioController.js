@@ -29,9 +29,10 @@ function autenticar(req, res) {
                                         nome: resultadoAutenticar[0].nome,
                                         cpf: resultadoAutenticar[0].cpf,
                                         senha: resultadoAutenticar[0].senha,
+                                        equipeId: resultadoAutenticar[0].equipeId,
                                     });
                                 } else {
-                                    res.status(204).json({ aquarios: [] });
+                                    res.status(204).json({ equipes: [] });
                                 }
                             })
                     } else if (resultadoAutenticar.length == 0) {

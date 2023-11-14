@@ -98,6 +98,7 @@
                     sessionStorage.NOME_USUARIO = json.nome;
                     sessionStorage.CPF_USUARIO = json.cpf;
                     sessionStorage.ID_USUARIO = json.id;
+                    sessionStorage.EQUIPE_USUARIO = json.equipe
 
                     setTimeout(function () {
                         window.location.href = "./dashboard/dashboard.html";
@@ -118,8 +119,7 @@
         }).catch(function (erro) {
             console.log(erro);
         })
-
-        return false; 
+ 
     }
 
     function sumirMensagem() {

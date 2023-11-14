@@ -1,8 +1,9 @@
 var database = require("../database/config");
 
-function buscarAquariosPorEmpresa(equipeId) {
+function buscarAquariosPorEmpresa(fk_equipe) {
 
-  instrucaoSql = `select * from equipe where fk_equipe = ${equipeId}`;
+  instrucaoSql = ` select * from usuario join equipe on fk_equipe = equipe.id
+  where fk_equipe = ${fk_equipe};  `;
 
   console.log("Executando a instrução SQL: \n" + instrucaoSql);
   return database.executar(instrucaoSql);

@@ -1,7 +1,7 @@
 const toggleSidebar = () => document.body.classList.toggle("open");
 
 function home(){
-  window.location.href = "../index.html"
+  window.location.href = "dashboard.html"
 }
 
 function inserirAluno(){
