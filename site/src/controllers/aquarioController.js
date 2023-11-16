@@ -1,9 +1,9 @@
 var aquarioModel = require("../models/aquarioModel");
 
-function buscarAquariosPorEmpresa(req, res) {
-  var fk_equipe = req.params.equipeId;
+function buscarUsuarioPorEquipe(req, res) {
+  var idUsuario = req.params.id;
 
-  aquarioModel.buscarAquariosPorEmpresa(fk_equipe).then((resultado) => {
+  aquarioModel.buscarUsuarioPorEquipe(idUsuario).then((resultado) => {
     if (resultado.length > 0) {
       res.status(200).json(resultado);
     } else {
@@ -44,6 +44,6 @@ function cadastrar(req, res) {
 }
 
 module.exports = {
-  buscarAquariosPorEmpresa,
+  buscarUsuarioPorEquipe,
   cadastrar
 }

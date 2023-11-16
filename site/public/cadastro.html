@@ -11,13 +11,13 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Red+Hat+Display:wght@700&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="css/styleLogin.css">
+    <link rel="stylesheet" href="css/styleCadastro.css">
     <script src="js/sessao.js"></script>
 </head>
 
 <body onload="listar()">
 
-    <nav id="navbar" class="navbar">
+    <nav id="antes" class="navbar">
         <img src="assets/WhatsApp Image 2023-11-11 at 15.09.44.jpeg" alt="">
         <a href="index.html"> Home </a>|
         <a href="login.html"> Login </a>|
@@ -216,4 +216,24 @@
     function sumirMensagem() {
         cardErro.style.display = "none";
     }
+
+
+    window.onscroll = scroll;
+
+function scroll() {
+  var scrollTop = window.pageYOffset;
+  if (scrollTop > 85) {
+    try {
+      document.getElementById('antes').id = 'depois'
+    } catch (e) { 
+      false 
+    }
+  } else {
+    try {
+      document.getElementById('depois').id = 'antes'
+    } catch (e) { 
+      false
+    }
+  }
+}
 </script>

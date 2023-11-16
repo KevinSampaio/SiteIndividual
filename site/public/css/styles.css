@@ -21,7 +21,7 @@ button {
   left: 0;
   width: 72px;
   height: 100%;
-  background: #048480;
+  background: #383838;
   transition: width 0.4s;
 }
 
@@ -117,18 +117,6 @@ body.open .sidebar button > span {
   animation: appear 0.3s both;
 }
 
-.botaoinserir{
-  background-color: #02d0d0;
-}
-
-.botaodeletar{
-  background-color: #02d0d0;
-}
-
-.botaoselecionar{
-  background-color: #02d0d0;
-}
-
-.botaoconsultar{
-  background-color: #02d0d0;
+.botaoazul{
+  background-color: #5a5a5a
 }
