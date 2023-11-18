@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="../css/styles.css" />
 </head>
 
-<body>
+<body onload="listar()">
   <aside class="sidebar">
     <div class="sidebar-inner">
       <header class="sidebar-header">
@@ -50,7 +50,194 @@
     </div>
   </aside>
 
-</body>
-</html>
+  <div class="alerta_erro">
+    <div class="card_erro" id="cardErro">
+      <span id="mensagem_erro"></span>
+    </div>
+  </div>
 
+  <div class="form-wrapper flex-container">
+    <div action="" class="form">
+      <h1 class="form-title">Cadatrar Aluno</h1>
+      <div class="email">
+        <div class="input-container">
+          <select name="Equipe" id="listaEquipe">
+            <option selected>Selecione uma Equipe</option>
+          </select>
+        </div>
+      </div>
+      <div class="email">
+        <div class="input-container">
+          <select name="Professor" id="listaProfessor">
+            <option selected>Selecione um Professor</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="email">
+        <div class="input-container">
+          <input id="nome_input" placeholder="Nome do aluno">
+        </div>
+      </div>
+
+      <div class="email">
+        <div class="input-container">
+          <input id="dtNasc_input" placeholder="Data de Nascimento">
+        </div>
+      </div>
+
+      <div class="email">
+        <div class="input-container">
+          <input id="faixa_aluno_input" placeholder="Faixa do aluno">
+        </div>
+      </div>
+
+      <div class="email">
+        <div class="input-container">
+          <input type="password" id="peso_input" placeholder="Peso do aluno">
+        </div>
+      </div>
+
+      <div class="password">
+        <div class="input-container">
+          <input type="password" id="altura_input" placeholder="Altura do aluno">
+        </div>
+      </div>
+
+      <br>
+
+      <button onclick="cadastrar()"> Cadastrar </button>
+    </div>
+  </div>
+
+  <div id="div_erros_login"></div>
+
+</body>
+
+</html>
 <script src="../js/dashboards.js"></script>
+<script src="../js/sessao.js"></script>
+<script>
+  function cadastrar() {
+    aguardar();
+
+    //Recupere o valor da nova input pelo nome do id
+    // Agora vá para o método fetch logo abaixo
+    var nomeAluno = nome_input.value;
+    var dtNasc = dtNasc_input.value;
+    var faixaAluno = faixa_aluno_input.value;
+    var pesoAluno = peso_input.value;
+    var alturaAluno = confirmacao_senha_input.value;
+    var equipeVar = listaEquipe.value
+    var professorAluno = listaProfessor.value;
+    if (
+      nomeAluno == "" ||
+      dtNasc == "" ||
+      faixaAluno == "" ||
+      pesoAluno == "" ||
+      alturaAluno == "" ||
+      equipeAluno == "" ||
+      professorAluni == ""
+    ) {
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML =
+        "(Mensagem de erro para todos os campos em branco)";
+
+      finalizarAguardar();
+      return false;
+
+    } else if (nomeAluno.length <= 1) {
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML =
+        "(Insira um nome maior que 1 letra)";
+      finalizarAguardar();
+      return false;
+
+    } else if (faixaAluno == "") {
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML =
+        "(É necessario o aluno ter uma faixa)";
+      finalizarAguardar();
+      return false;
+
+    } else if (pesoAluno == "") {
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML =
+        "(Insira uma Peso)";
+      finalizarAguardar();
+      return false;
+
+    } else if (dtNasc == "") {
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML =
+        "(Digite uma data valida dd/mm/aa)";
+      finalizarAguardar();
+      return false;
+    } else {
+      setInterval(sumirMensagem, 5000);
+    }
+
+
+    console.log("Testye  ");
+    // Enviando o valor da nova input
+    fetch("/usuarios/cadastrar", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        // crie um atributo que recebe o valor recuperado aqui
+        // Agora vá para o arquivo routes/usuario.js
+        nomeServer: nomeAluno,
+        cpfServer: dtNasc,
+        emailServer: faixaAluno,
+        senhaServer: pesoAluno,
+        equipeServer: equipeVar
+      }),
+    })
+      .then(function (resposta) {
+        console.log("resposta: ", resposta);
+
+        if (resposta.ok) {
+          cardErro.style.display = "block";
+
+          mensagem_erro.innerHTML =
+            "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+
+          setTimeout(() => {
+            window.location = "login.html";
+          }, "2000");
+
+          limparFormulario();
+          finalizarAguardar();
+        } else {
+          throw "Houve um erro ao tentar realizar o cadastro!";
+        }
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+        finalizarAguardar();
+      });
+  }
+
+  function listar() {
+    fetch("/Equipe/listar", {
+      method: "GET",
+    })
+      .then(function (resposta) {
+        resposta.json().then((Equipe) => {
+          Equipe.forEach((equipe) => {
+            listaEquipe.innerHTML += `<option value='${equipe.id}'>${equipe.nomeEquipe}</option>`;
+          });
+        });
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+      });
+  }
+
+  function sumirMensagem() {
+    cardErro.style.display = "none";
+  }
+
+</script>
