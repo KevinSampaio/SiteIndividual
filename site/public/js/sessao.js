@@ -37,3 +37,13 @@ function finalizarAguardar(texto) {
     }
 }
 
+
+function limparFormulario(){
+    document.getElementById('nome_input').value=''; // Limpa o campo
+    document.getElementById('dtNasc_input').value='';
+    document.getElementById('faixa_aluno_input').value='';
+    document.getElementById('peso_input').value='';
+    document.getElementById('altura_input').value='';
+    document.getElementById('listaEquipe').value='Selecione uma Equipe';
+    document.getElementById('listaProfessor').value='Selecione um Professor';
+}

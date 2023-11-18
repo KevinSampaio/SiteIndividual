@@ -239,3 +239,13 @@ body.open .sidebar button > span {
 #div_erros_login {
   display: none
 }
+
+.loading-div {
+  width: 50px;
+  display: none;
+}
+
+.loading-div img {
+  height: 50px;
+  width: 50px;
+}

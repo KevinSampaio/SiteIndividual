@@ -1,5 +1,5 @@
 var usuarioModel = require("../models/usuarioModel");
-var aquarioModel = require("../models/aquarioModel");
+var equipeModel = require("../models/equipeModel");
 
 function autenticar(req, res) {
     var email = req.body.emailServer;
@@ -20,9 +20,9 @@ function autenticar(req, res) {
                     if (resultadoAutenticar.length == 1) {
                         console.log(resultadoAutenticar);
 
-                        aquarioModel.buscarUsuarioPorEquipe(resultadoAutenticar[0].equipeId)
-                            .then((resultadoAquarios) => {
-                                if (resultadoAquarios.length > 0) {
+                        equipeModel.buscarPorId(resultadoAutenticar[0].equipeId)
+                            .then((resultadoEquipes) => {
+                                if (resultadoEquipes.length > 0) {
                                     res.json({
                                         id: resultadoAutenticar[0].id,
                                         email: resultadoAutenticar[0].email,
@@ -69,7 +69,7 @@ function cadastrar(req, res) {
         res.status(400).send("Sua senha está undefined!");
     } else if (equipeId == undefined) {
         res.status(400).send("Sua equipe está undefined!");
-    }else if (cpf == undefined) {
+    } else if (cpf == undefined) {
         res.status(400).send("Seu cpf está undefined!");
     } else {
 
@@ -92,7 +92,34 @@ function cadastrar(req, res) {
     }
 }
 
+
+function listarUsuarios(req, res) {
+    usuarioModel.listarUsuarios().then((resultado) => {
+      res.status(200).json(resultado);
+    });
+  }
+
+
+  function buscarPorId(req, res) {
+    var id = req.params.id;
+  
+    usuarioModel.buscarPorId(id).then((resultado) => {
+      res.status(200).json(resultado);
+    });
+  }
+
+  function buscarPorNome(req, res) {
+    var nome = req.query.nome;
+  
+    usuarioModel.buscarPorNome(nome).then((resultado) => {
+      res.status(200).json(resultado);
+    });
+  }
+
 module.exports = {
     autenticar,
-    cadastrar
+    cadastrar,
+    listarUsuarios,
+    buscarPorId,
+    buscarPorNome
 }

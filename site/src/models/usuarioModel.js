@@ -22,7 +22,29 @@ function cadastrar(nome, cpf, email, senha, equipeId) {
     return database.executar(instrucao);
 }
 
+function listarUsuarios() {
+    var query = `select * from usuario`;
+  
+    return database.executar(query);
+  }
+
+  function buscarPorId(id) {
+    var query = `select * from usuario where id = '${id}'`;
+  
+    return database.executar(query);
+  }
+
+  function buscarPorNome(nome) {
+    var query = `select * from usuario where nome = '${nome}'`;
+  
+    return database.executar(query);
+  }
+
+
 module.exports = {
     autenticar,
-    cadastrar
+    cadastrar,
+    listarUsuarios,
+    buscarPorId,
+    buscarPorNome
 };
