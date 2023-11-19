@@ -102,16 +102,15 @@ function listarUsuarios(req, res) {
 
   function buscarPorId(req, res) {
     var id = req.params.id;
-  
     usuarioModel.buscarPorId(id).then((resultado) => {
       res.status(200).json(resultado);
     });
   }
 
   function buscarPorNome(req, res) {
-    var nome = req.query.nome;
+    var nomeProfessor = req.query.nome;
   
-    usuarioModel.buscarPorNome(nome).then((resultado) => {
+    usuarioModel.buscarPorNome(nomeProfessor).then((resultado) => {
       res.status(200).json(resultado);
     });
   }

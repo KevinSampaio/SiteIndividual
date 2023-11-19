@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="../css/styles.css" />
 </head>
 
-<body onload="listarUsuarios()">
+<body onload="listar(),listarUsuarios()">
   <aside class="sidebar">
     <div class="sidebar-inner">
       <header class="sidebar-header">
@@ -62,7 +62,7 @@
 
       <div class="email">
         <div class="input-container">
-          <select name="Equipe" id="listaEquipe">
+          <select class="selectBonito" name="Equipe" id="listaEquipe">
             <option selected>Selecione uma Equipe</option>
           </select>
         </div>
@@ -70,7 +70,7 @@
 
       <div class="email">
         <div class="input-container">
-          <select name="Usuarios" id="listaUsuarios">
+          <select class="selectBonito" name="Usuarios" id="listaUsuarios">
             <option selected>Selecione um Professor</option>
           </select>
         </div>
@@ -78,31 +78,36 @@
 
       <div class="email">
         <div class="input-container">
-          <input id="nome_input" placeholder="Nome do aluno">
+          <p>Nome:</p>
+          <input id="nome_input" placeholder="Exemplo: Kevin Peters">
         </div>
       </div>
 
       <div class="email">
         <div class="input-container">
-          <input id="dtNasc_input" placeholder="Data de Nascimento aa/mm/dd">
+          <p>Data de Nascimento:</p>
+          <input id="dtNasc_input" placeholder="Exemplo: AA/MM/DD">
         </div>
       </div>
 
       <div class="email">
         <div class="input-container">
-          <input id="faixa_aluno_input" placeholder="Faixa do aluno">
+          <p>Faixa:</p>
+          <input id="faixa_aluno_input" placeholder="Exemplo: Roxo">
         </div>
       </div>
 
       <div class="email">
         <div class="input-container">
-          <input id="peso_input" placeholder="Peso do aluno">
+          <p>Peso:</p>
+          <input id="peso_input" placeholder="Exemplo: 60">
         </div>
       </div>
 
       <div class="password">
+        <p>Altura:</p>
         <div class="input-container">
-          <input id="altura_input" placeholder="Altura do aluno em cm">
+          <input id="altura_input" placeholder="Exemplo: 170">
         </div>
       </div>
 
@@ -248,7 +253,7 @@
       .then(function (resposta) {
         resposta.json().then((Usuarios) => {
           Usuarios.forEach((usuarios) => {
-            listaUsuarios.innerHTML += `<option value='${id}'>${nome}</option>`;
+            listaUsuarios.innerHTML += `<option value='${usuarios.id}'>${usuarios.nome}</option>`;
           });
         });
       })

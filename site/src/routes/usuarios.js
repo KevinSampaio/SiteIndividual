@@ -20,7 +20,7 @@ router.get("/buscar", function (req, res) {
     usuarioController.buscarPorNome(req, res);
 });
 
-router.get("/buscar/:id", function (req, res) {
+router.get("/buscar/:idProfessor", function (req, res) {
     usuarioController.buscarPorId(req, res);
 });
 

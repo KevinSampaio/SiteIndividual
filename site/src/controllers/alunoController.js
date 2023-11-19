@@ -26,7 +26,7 @@ if (nome == undefined) {
 } else{
 
     // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-    alunoModel.cadastrar(nome, dtNasc, faixa, peso, altura)
+    alunoModel.cadastrar(nome, dtNasc, faixa, peso, altura, equipeId, professorId)
         .then(
             function (resultado) {
                 res.json(resultado);
