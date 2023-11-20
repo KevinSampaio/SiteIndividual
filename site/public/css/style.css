@@ -286,6 +286,9 @@ li:hover {
 }
 
 .imagem{
+  display: flex;
+  justify-items: center;
+  justify-content: center;
   width: 40%;
 }
 
@@ -399,4 +402,6 @@ height: 50px;
   display: flex;
   justify-content: start;
 } */
+
+
 
