@@ -14,6 +14,12 @@
 </head>
 
 <body>
+  <div class="alerta_erro">
+    <div class="card_erro" id="cardErro">
+      <span id="mensagem_erro"></span>
+    </div>
+  </div>
+
   <aside class="sidebar">
     <div class="sidebar-inner">
       <header class="sidebar-header">
@@ -49,8 +55,27 @@
       </footer>
     </div>
   </aside>
+<div class="juntos">
+  <main>
+    <h2>Cálculo IMC do aluno</h2>
+    <div class="divAltura">
+      <label for="altura">Altura (M)</label>
+      <input class="input_imc" type="number" id="altura" />
+    </div>
+    <div class="divPeso">
+      <label for="peso">Peso (KG)</label>
+      <input class="input_imc" type="number" id="peso" />
+    </div>
 
+    <div class="divCalc">
+      <button class="imc" onclick="calcIMC()">Calcular</button>
+    </div>
+    
+  </main>
+  <span id="resultado"><h1>Resultado</h1></span>
+</div>
 </body>
 </html>
 
 <script src="../js/dashboards.js"></script>
+<script src="../js/imc.js"></script>
