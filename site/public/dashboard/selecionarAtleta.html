@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="../css/styles.css" />
 </head>
 
-<body>
+<body onload="listarAluno()">
   <aside class="sidebar">
     <div class="sidebar-inner">
       <header class="sidebar-header">
@@ -34,7 +34,7 @@
         </button>
         <button type="button" onclick="selecionarAluno()" class="botaoazul">
           <img src="../assets/pessoas.png" />
-          <span style="animation-delay: 0.3s">Consultar</span>
+          <span style="animation-delay: 0.3s">Atualizar</span>
         </button>
         <button type="button" onclick="consultarIMC()">
           <img src="../assets/cuidados-de-saude.png" />
@@ -61,8 +61,8 @@
 
       <div class="email">
         <div class="input-container">
-          <select class="selectBonito" name="Equipe" id="listaEquipe">
-            <option selected>Selecione uma Equipe</option>
+          <select class="selectBonito" name="Alunos" id="listaAluno">
+            <option selected>Selecione um aluno</option>
           </select>
         </div>
       </div>
@@ -71,6 +71,7 @@
         <div class="input-container">
           <p>Nome:</p>
           <input id="nome_input" placeholder="Exemplo: Kevin Peters">
+          <button onclick="atualizar()"> Atualizar Nome
         </div>
       </div>
 
@@ -78,14 +79,17 @@
         <div class="input-container">
           <p>Faixa:</p>
           <input id="faixa_aluno_input" placeholder="Exemplo: Roxo">
+          <button onclick="atualizar()"> Atualizar Faixa
         </div>
       </div>
-
-
-
+      <div class="email">
+        <div class="input-container">
+          <p>Nome:</p>
+          <input id="peso_input" placeholder="Exemplo: 60">
+          <button onclick="atualizar()"> Atualizar Peso
+        </div>
+      </div>
       <br>
-
-      <button onclick="cadastrar()"> Cadastrar </button>
     </div>
     <div id="div_aguardar" class="loading-div">
       <img src="../assets/aguarde-pink2.gif" id="loading-gif" />
@@ -102,26 +106,21 @@
 <script src="../js/sessao.js"></script>
 
 <script>
-  function cadastrar() {
+  function atualizar() {
     aguardar();
 
     //Recupere o valor da nova input pelo nome do id
     // Agora vá para o método fetch logo abaixo
     var nomeAluno = nome_input.value;
-    var dtNasc = dtNasc_input.value;
     var faixaAluno = faixa_aluno_input.value;
     var pesoAluno = peso_input.value;
-    var alturaAluno = altura_input.value;
-    var equipeVar = listaEquipe.value
-    var professorAluno = listaUsuarios.value;
+    var alunoId = listaAluno.value;
+   
     if (
       nomeAluno == "" ||
-      dtNasc == "" ||
       faixaAluno == "" ||
       pesoAluno == "" ||
-      alturaAluno == "" ||
-      equipeVar == "" ||
-      professorAluno == ""
+      alunoId == ""
     ) {
       cardErro.style.display = "block";
       mensagem_erro.innerHTML =
@@ -151,12 +150,6 @@
       finalizarAguardar();
       return false;
 
-    } else if (dtNasc == "") {
-      cardErro.style.display = "block";
-      mensagem_erro.innerHTML =
-        "(Digite uma idade valida)";
-      finalizarAguardar();
-      return false;
     } else {
       setInterval(sumirMensagem, 5000);
     }
@@ -164,7 +157,7 @@
 
     console.log("Testye  ");
     // Enviando o valor da nova input
-    fetch("/alunos/cadastrar", {
+    fetch("/alunos/atualizacao", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -172,13 +165,10 @@
       body: JSON.stringify({
         // crie um atributo que recebe o valor recuperado aqui
         // Agora vá para o arquivo routes/usuario.js
+        alunoServer: alunoId,
         nomeServer: nomeAluno,
-        dtNascServer: dtNasc,
         faixaServer: faixaAluno,
-        pesoServer: pesoAluno,
-        alturaServer: alturaAluno,
-        professorServer: professorAluno,
-        equipeServer: equipeVar
+        pesoServer: pesoAluno
       }),
     })
       .then(function (resposta) {
@@ -202,30 +192,14 @@
       });
   }
 
-  function listar() {
-    fetch("/Equipe/listar", {
+  function listarAluno() {
+    fetch("/alunos/listarAluno", {
       method: "GET",
     })
       .then(function (resposta) {
-        resposta.json().then((Equipe) => {
-          Equipe.forEach((equipe) => {
-            listaEquipe.innerHTML += `<option value='${equipe.id}'>${equipe.nomeEquipe}</option>`;
-          });
-        });
-      })
-      .catch(function (resposta) {
-        console.log(`#ERRO: ${resposta}`);
-      });
-  }
-
-  function listarUsuarios(){
-    fetch("/Usuarios/listarUsuarios", {
-      method: "GET",
-    })
-      .then(function (resposta) {
-        resposta.json().then((Usuarios) => {
-          Usuarios.forEach((usuarios) => {
-            listaUsuarios.innerHTML += `<option value='${usuarios.id}'>${usuarios.nome}</option>`;
+        resposta.json().then((Aluno) => {
+          Aluno.forEach((alunos) => {
+            listaAluno.innerHTML += `<option value='${alunos.id}'>${alunos.nome}</option>`;
           });
         });
       })

@@ -7,6 +7,22 @@ var alunoController = require("../controllers/alunoController");
 router.post("/cadastrar", function (req, res) {
     alunoController.cadastrar(req, res);
 })
+router.post("/atualizacao", function (req, res) {
+    alunoController.atualizacao(req, res);
+})
+
+router.get("/listarAluno", function (req, res) {
+    alunoController.listarAluno(req, res);
+});
+
+router.get("/buscar", function (req, res) {
+    alunoController.buscarPorNome(req, res);
+});
+
+router.get("/buscar/:id", function (req, res) {
+    alunoController.buscarPorId(req, res);
+});
+
 
 
 module.exports = router;

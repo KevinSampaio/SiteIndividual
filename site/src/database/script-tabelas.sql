@@ -44,3 +44,15 @@ insert into equipe (nomeEquipe, cnpj) values
 ('Associação Shiroma', '22222222222222'),
 ('Equipe Jundiai', '33333333333333'),
 ('Cohab', '44444444444444');
+
+insert into usuario values
+(null, 'Kevin', '12345678901', 'kevin@kevin.com', '123456', 1);
+
+
+insert into aluno (nome,dtNascimento,faixa, peso, altura, fk_usuario, fk_equipe) values
+('Bruninho', '2000-01-01', 'Roxa','60','100',1,1);
+
+select * from aluno;
+
+update aluno set nome = "Bruninho", faixa = "Azul" where id = 1;
+
