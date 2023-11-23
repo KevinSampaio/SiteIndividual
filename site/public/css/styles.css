@@ -310,3 +310,34 @@ main {
     font-size: 15px;
   }
 }
+
+.alunos{
+  margin-left: 100px;
+  width: 100px;
+  height: 100px;
+  background-color: #000000;
+  color: #fff;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+}
+.titulo{
+  margin-left: 50%;
+  color: #fff;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 20px;
+}
+
+.box{
+  display: flex;
+  text-align: center;
+  align-items: center;
+  margin-left: 30%;
+  margin-top: 10%;
+}
+
+.boxes{
+
+}
