@@ -14,18 +14,19 @@
 </head>
 
 <body>
-    <div class="heat">
+    <div class="heat" id="home">
         <div class="gradientBanner">
             <!--  -->
             <div class="header">
-                <div class="container">
+                <div class="container" id="antes">
                     <!--  -->
-                    <h1>TeamArt</h1>
+                    <h1>JudoArt</h1>
                         <ul>
-                            <li>Home</li>
-                            <li>Cursos</li>
-                            <li>Sobre nós</li>
-                            <li>Fale conosco</li>
+                            <li><a href="#home">Home</a></li>
+                            <li><a href="#historia">Historia</a></li>
+                            <li><a href="#sobreMim">Sobre Mim</a></li>
+                            <li><a href="#rodape">Fale conosco</a></li>
+
                         </ul>
                     <!--  -->
                     <div class="cadastro_logim">    
@@ -36,7 +37,7 @@
             </div>
             <!--  -->
             <div class="bannerInHeader">
-                <h1>Bem vindo ao TeamArt</h1>
+                <h1>Bem vindo ao JudoArt</h1>
             </div>
         </div>
     </div>
@@ -257,7 +258,7 @@
 
     function scroll() {
         var scrollTop = window.pageYOffset;
-        if (scrollTop > 85) {
+        if (scrollTop > 200) {
             try {
                 document.getElementById('antes').id = 'depois'
             } catch (e) {
