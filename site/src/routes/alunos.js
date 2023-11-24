@@ -11,6 +11,14 @@ router.post("/atualizacao", function (req, res) {
     alunoController.atualizacao(req, res);
 })
 
+router.post("/atualizacaoPeso", function (req, res) {
+    alunoController.atualizacaoPeso(req, res);
+})
+
+router.post("/atualizacaoFaixa", function (req, res) {
+    alunoController.atualizacaoFaixa(req, res);
+})
+
 router.get("/listarAluno", function (req, res) {
     alunoController.listarAluno(req, res);
 });

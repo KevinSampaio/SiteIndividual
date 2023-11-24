@@ -79,14 +79,14 @@
         <div class="input-container">
           <p>Faixa:</p>
           <input id="faixa_aluno_input" placeholder="Exemplo: Roxo">
-          <button onclick="atualizar()"> Atualizar Faixa
+          <button onclick="atualizarFaixa()"> Atualizar Faixa
         </div>
       </div>
       <div class="email">
         <div class="input-container">
-          <p>Nome:</p>
+          <p>Peso:</p>
           <input id="peso_input" placeholder="Exemplo: 60">
-          <button onclick="atualizar()"> Atualizar Peso
+          <button onclick="atualizarPeso()"> Atualizar Peso
         </div>
       </div>
       <br>
@@ -112,14 +112,10 @@
     //Recupere o valor da nova input pelo nome do id
     // Agora vá para o método fetch logo abaixo
     var nomeAluno = nome_input.value;
-    var faixaAluno = faixa_aluno_input.value;
-    var pesoAluno = peso_input.value;
     var alunoId = listaAluno.value;
-   
+  
     if (
       nomeAluno == "" ||
-      faixaAluno == "" ||
-      pesoAluno == "" ||
       alunoId == ""
     ) {
       cardErro.style.display = "block";
@@ -136,10 +132,125 @@
       finalizarAguardar();
       return false;
 
+    } else {
+      setInterval(sumirMensagem, 5000);
+    }
+    console.log("Testye  ");
+    // Enviando o valor da nova input
+    fetch("/alunos/atualizacao", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        // crie um atributo que recebe o valor recuperado aqui
+        // Agora vá para o arquivo routes/usuario.js
+        alunoServer: alunoId,
+        nomeServer: nomeAluno,
+      }),
+    })
+      .then(function (resposta) {
+        console.log("resposta: ", resposta);
+
+        if (resposta.ok) {
+          cardErro.style.display = "block";
+
+          mensagem_erro.innerHTML =
+            "Troca realizada com sucesso!";
+
+          limparFormulario();
+          finalizarAguardar();
+        } else {
+          throw "Houve um erro ao tentar realizar a troca de nome!";
+        }
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+        finalizarAguardar();
+      });
+  }
+
+  function atualizarFaixa() {
+    aguardar();
+
+    //Recupere o valor da nova input pelo nome do id
+    // Agora vá para o método fetch logo abaixo
+    var faixaAluno = faixa_aluno_input.value;
+    var alunoId = listaAluno.value;
+   
+    if (
+      faixaAluno == "" ||
+      alunoId == ""
+    ) {
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML =
+        "(Mensagem de erro para todos os campos em branco)";
+
+      finalizarAguardar();
+      return false;
+
     } else if (faixaAluno == "") {
       cardErro.style.display = "block";
       mensagem_erro.innerHTML =
         "(É necessario o aluno ter uma faixa)";
+      finalizarAguardar();
+      return false;
+
+    } else {
+      setInterval(sumirMensagem, 5000);
+    }
+
+    console.log("Testye  ");
+    // Enviando o valor da nova input
+    fetch("/alunos/atualizacaoFaixa", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        // crie um atributo que recebe o valor recuperado aqui
+        // Agora vá para o arquivo routes/usuario.js
+        alunoServer: alunoId,
+        faixaServer: faixaAluno,
+      }),
+    })
+      .then(function (resposta) {
+        console.log("resposta: ", resposta);
+
+        if (resposta.ok) {
+          cardErro.style.display = "block";
+
+          mensagem_erro.innerHTML =
+            "Troca realizada com sucesso!";
+
+          limparFormulario();
+          finalizarAguardar();
+        } else {
+          throw "Houve um erro ao tentar trocar a faixa do aluno!";
+        }
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+        finalizarAguardar();
+      });
+  }
+
+  function atualizarPeso() {
+    aguardar();
+
+    //Recupere o valor da nova input pelo nome do id
+    // Agora vá para o método fetch logo abaixo
+    var pesoAluno = peso_input.value;
+    var alunoId = listaAluno.value;
+   
+    if (
+      pesoAluno == "" ||
+      alunoId == ""
+    ) {
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML =
+        "(Mensagem de erro para todos os campos em branco)";
+
       finalizarAguardar();
       return false;
 
@@ -154,10 +265,9 @@
       setInterval(sumirMensagem, 5000);
     }
 
-
     console.log("Testye  ");
     // Enviando o valor da nova input
-    fetch("/alunos/atualizacao", {
+    fetch("/alunos/atualizacaoPeso", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -166,8 +276,6 @@
         // crie um atributo que recebe o valor recuperado aqui
         // Agora vá para o arquivo routes/usuario.js
         alunoServer: alunoId,
-        nomeServer: nomeAluno,
-        faixaServer: faixaAluno,
         pesoServer: pesoAluno
       }),
     })
@@ -178,12 +286,12 @@
           cardErro.style.display = "block";
 
           mensagem_erro.innerHTML =
-            "Cadastro realizado com sucesso!";
+            "Troca realizada com sucesso!";
 
           limparFormulario();
           finalizarAguardar();
         } else {
-          throw "Houve um erro ao tentar realizar o cadastro!";
+          throw "Houve um erro ao tentar realizar a troca de peso!";
         }
       })
       .catch(function (resposta) {
@@ -191,6 +299,8 @@
         finalizarAguardar();
       });
   }
+
+
 
   function listarAluno() {
     fetch("/alunos/listarAluno", {
