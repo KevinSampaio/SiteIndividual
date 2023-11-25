@@ -10,14 +10,19 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap"
     rel="stylesheet" />
-  <link rel="stylesheet" href="../css/styles.css" />
+  <link rel="stylesheet" href="../css/styleDashboard.css" />
 </head>
 
-<body>
+<body onload="validarSessao(), listarAluno()">
   <aside class="sidebar">
     <div class="sidebar-inner">
       <header class="sidebar-header">
         <button type="button" class="sidebar-burger" onclick="toggleSidebar()"></button>
+        <div class="hello">
+          <h3>Olá, <span id="b_usuario">usuário:</span>!
+            <span id="b_id_usuario">Id:</span>
+          </h3>
+        </div>
       </header>
       <nav class="sidebar-nav">
         <button type="button" onclick="home()">
@@ -50,7 +55,123 @@
     </div>
   </aside>
 
+  <div class="alerta_erro">
+    <div class="card_erro" id="cardErro">
+      <span id="mensagem_erro"></span>
+    </div>
+  </div>
+
+  <div class="form-wrapper flex-container">
+    <div action="" class="form">
+      <h1 class="form-title">Deletar Aluno</h1>
+
+      <div class="email">
+        <div class="input-container">
+          <select class="selectBonito" name="Alunos" id="listaAluno">
+            <option selected>Selecione um aluno</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="email">
+        <div class="input-container">
+          <p>Nome:</p>
+          <input id="nome_input" placeholder="Exemplo: Kevin Peters">
+          <button onclick="deletar()"> Deletar Aluno
+        </div>
+      </div>
+      <br>
+    </div>
+    <div id="div_aguardar" class="loading-div">
+      <img src="../assets/aguarde-pink2.gif" id="loading-gif" />
+    </div>
+  </div>
+
+  <div id="div_erros_login"></div>
+
 </body>
 </html>
 
 <script src="../js/dashboards.js"></script>
+<script src="../js/sessao.js"></script>
+
+<script>
+  function deletar() {
+    aguardar();
+
+    //Recupere o valor da nova input pelo nome do id
+    // Agora vá para o método fetch logo abaixo
+    var alunoId = listaAluno.value;
+   
+    if (
+      alunoId == ""
+    ) {
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML =
+        "(Mensagem de erro para todos os campos em branco)";
+
+      finalizarAguardar();
+      return false;
+
+    } else {
+      setInterval(sumirMensagem, 5000);
+    }
+
+    console.log("Testye  ");
+    // Enviando o valor da nova input
+    fetch("/alunos/deletar", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        // crie um atributo que recebe o valor recuperado aqui
+        // Agora vá para o arquivo routes/usuario.js
+        alunoServer: alunoId,
+      }),
+    })
+      .then(function (resposta) {
+        console.log("resposta: ", resposta);
+
+        if (resposta.ok) {
+          cardErro.style.display = "block";
+
+          mensagem_erro.innerHTML =
+            "aluno deletado!";
+
+          limparFormulario();
+          finalizarAguardar();
+        } else {
+          throw "Houve um erro ao tentar deletar o aluno!";
+        }
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+        finalizarAguardar();
+      });
+  }
+
+
+
+  function listarAluno() {
+    fetch("/alunos/listarAluno", {
+      method: "GET",
+    })
+      .then(function (resposta) {
+        resposta.json().then((Aluno) => {
+          Aluno.forEach((alunos) => {
+            listaAluno.innerHTML += `<option value='${alunos.id}'>${alunos.nome}</option>`;
+          });
+        });
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+      });
+  }
+
+  function sumirMensagem() {
+    cardErro.style.display = "none";
+    window.location.reload()
+  }
+
+</script>

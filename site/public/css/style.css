@@ -122,7 +122,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 103%;
+  width: 100%;
   height: 700px;
 }
 
@@ -287,6 +287,20 @@ li:hover {
   background-color: #fff;
 }
 
+.titulosDoJudo{
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  text-align: center;
+}
+
+.titulosDoJudo h2{
+text-align: center;
+margin-left: 120px;
+margin-right: 140px;
+color: #fff;
+}
 .container {
   position: relative;
   width: 100%;
@@ -362,6 +376,7 @@ li:hover {
 
 .texto{
   width: 40%;
+  color: #FFF;
 }
 
 .imagem{
@@ -481,6 +496,3 @@ height: 50px;
   display: flex;
   justify-content: start;
 } */
-
-
-

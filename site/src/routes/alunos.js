@@ -27,10 +27,17 @@ router.get("/buscar", function (req, res) {
     alunoController.buscarPorNome(req, res);
 });
 
-router.get("/buscar/:id", function (req, res) {
-    alunoController.buscarPorId(req, res);
+router.get("/buscar/:fk_usuario", function (req, res) {
+    alunoController.buscarPorFk(req, res);
 });
 
+router.post("/deletar", function (req, res) {
+    alunoController.deletar(req, res);
+})
+
+router.get("/listarTotalAluno/:professorId", function (req, res) {
+    alunoController.listarTotalAluno(req, res);
+});
 
 
 module.exports = router;

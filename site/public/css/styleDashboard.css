@@ -4,7 +4,6 @@
 
 body {
   margin: 0;
-  background: #121212;
 }
 
 button {
@@ -137,8 +136,9 @@ body.open .sidebar button > span {
   flex-direction: column;
   border-radius: 1em;
   background: #ffffff;
-  box-shadow: 8px 8px 40px 0px #00000026;
+  box-shadow: 8px 8px 40px 0px #000000e8;
   padding: 3em 4em;
+  border: solid 1px black;
 }
 
 .form-title {
@@ -268,6 +268,8 @@ main {
   border-radius: 10px;
   margin-top: 10px;
   text-align: center;
+  border: solid 1px #000000;
+  box-shadow: 8px 8px 40px 0px #000000e8;
 }
 
 .divAltura, .divPeso, .divCalc {
@@ -303,6 +305,8 @@ main {
   margin-top: 10px;
   text-align: center;
   flex-direction: column;
+  border: solid 1px #000000;
+  box-shadow: 8px 8px 40px 0px #000000e8;
 }
 
 @media (max-width: 500px) {
@@ -312,17 +316,24 @@ main {
 }
 
 .alunos{
-  margin-left: 100px;
-  width: 100px;
+  margin-left: 50px;
+  width: 250px;
   height: 100px;
-  background-color: #000000;
-  color: #fff;
+  color: black;
   text-align: center;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 10px;
+  border: solid 1px #383838;
+  box-shadow: 8px 8px 40px 0px #000000e8;
 }
+
+.alunos p{
+margin-left: 3px;
+margin-right: 3px;
+}
+
 .titulo{
   margin-left: 50%;
   color: #fff;
@@ -334,10 +345,22 @@ main {
   display: flex;
   text-align: center;
   align-items: center;
-  margin-left: 30%;
-  margin-top: 10%;
+  margin-left: 5%;
+  margin-top: 5%;
 }
 
 .email button{
   margin-left: 25%;
+}
+
+.dashboardaPrincipal{
+text-align: center;
+margin-left: 50%;
+width: 200px;
+border: solid 1px #000000;
+border-radius: 10px;
+}
+
+.hello{
+  color: #fff;
 }

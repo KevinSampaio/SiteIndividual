@@ -4,7 +4,7 @@ function cadastrar(nome, dtNasc, faixa, peso, professorId, equipeId) {
   
   console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", nome, dtNasc, faixa, peso, equipeId, professorId);
 
-    var query = `insert into aluno (nome, dtNasc, faixa, peso, fk_usuario, fk_equipe) values ('${nome}', '${dtNasc}','${faixa}', '${peso}','${equipeId}','${professorId}')`;
+    var query = `insert into aluno (nome, dtNascimento, faixa, peso, fk_usuario, fk_equipe) values ('${nome}', '${dtNasc}','${faixa}', '${peso}','${equipeId}','${professorId}')`;
   
     return database.executar(query);
   }
@@ -42,8 +42,8 @@ function cadastrar(nome, dtNasc, faixa, peso, professorId, equipeId) {
       return database.executar(query);
     }
 
-    function buscarPorId(id) {
-      var query = `select * from aluno where id = '${id}'`;
+    function buscarPorFk(fkusuario) {
+      var query = `select count(nome) as totalAluno from aluno where fk_usuario = '${fkusuario}'`;
     
       return database.executar(query);
     }
@@ -54,13 +54,30 @@ function cadastrar(nome, dtNasc, faixa, peso, professorId, equipeId) {
       return database.executar(query);
     }
 
+    function deletar(alunoId) {
+  
+      console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function deletar():");
+    
+      var query = `delete from aluno where id = '${alunoId}'`;
+      
+        return database.executar(query);
+      }
+
+      function listarTotalAluno(professorId) {
+        var query = `select count(fk_usuario) as totalAluno from aluno where fk_usuario = '${professorId}'`;
+      
+        return database.executar(query);
+      }
+
   module.exports = {
     cadastrar,
     listarAluno,
     atualizacao,
-    buscarPorId,
+    buscarPorFk,
     buscarPorNome,
     atualizacaoPeso,
-    atualizacaoFaixa
+    atualizacaoFaixa,
+    deletar,
+    listarTotalAluno
 };
 

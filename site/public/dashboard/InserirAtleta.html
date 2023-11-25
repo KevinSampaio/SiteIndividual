@@ -10,14 +10,19 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap"
     rel="stylesheet" />
-  <link rel="stylesheet" href="../css/styles.css" />
+  <link rel="stylesheet" href="../css/styleDashboard.css" />
 </head>
 
-<body onload="listar(),listarUsuarios()">
+<body onload="validarSessao(), listar(), listarUsuarios()">
   <aside class="sidebar">
     <div class="sidebar-inner">
       <header class="sidebar-header">
         <button type="button" class="sidebar-burger" onclick="toggleSidebar()"></button>
+        <div class="hello">
+          <h3>Olá, <span id="b_usuario">usuário:</span>!
+            <span id="b_id_usuario">Id:</span>
+          </h3>
+        </div>
       </header>
       <nav class="sidebar-nav">
         <button type="button" onclick="home()">
@@ -103,16 +108,7 @@
           <input id="peso_input" placeholder="Exemplo: 60">
         </div>
       </div>
-
-      <div class="password">
-        <p>Altura:</p>
-        <div class="input-container">
-          <input id="altura_input" placeholder="Exemplo: 170">
-        </div>
-      </div>
-
       <br>
-
       <button onclick="cadastrar()"> Cadastrar </button>
     </div>
     <div id="div_aguardar" class="loading-div">
@@ -130,6 +126,9 @@
 <script src="../js/sessao.js"></script>
 
 <script>
+    b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+    b_id_usuario.innerHTML = sessionStorage.ID_USUARIO;
+    
   function cadastrar() {
     aguardar();
 
@@ -139,7 +138,6 @@
     var dtNasc = dtNasc_input.value;
     var faixaAluno = faixa_aluno_input.value;
     var pesoAluno = peso_input.value;
-    var alturaAluno = altura_input.value;
     var equipeVar = listaEquipe.value
     var professorAluno = listaUsuarios.value;
     if (
@@ -147,7 +145,6 @@
       dtNasc == "" ||
       faixaAluno == "" ||
       pesoAluno == "" ||
-      alturaAluno == "" ||
       equipeVar == "" ||
       professorAluno == ""
     ) {
@@ -204,7 +201,6 @@
         dtNascServer: dtNasc,
         faixaServer: faixaAluno,
         pesoServer: pesoAluno,
-        alturaServer: alturaAluno,
         professorServer: professorAluno,
         equipeServer: equipeVar
       }),
@@ -247,7 +243,7 @@
   }
 
   function listarUsuarios(){
-    fetch("/Usuarios/listarUsuarios", {
+    fetch(`/usuarios/listarUsuarios/${sessionStorage.ID_USUARIO}`, {
       method: "GET",
     })
       .then(function (resposta) {
@@ -264,6 +260,7 @@
 
   function sumirMensagem() {
     cardErro.style.display = "none";
+    window.location.reload()
   }
 
 </script>

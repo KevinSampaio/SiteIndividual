@@ -94,7 +94,8 @@ function cadastrar(req, res) {
 
 
 function listarUsuarios(req, res) {
-    usuarioModel.listarUsuarios().then((resultado) => {
+    var professorId = req.params.professorId;
+    usuarioModel.listarUsuarios(professorId).then((resultado) => {
       res.status(200).json(resultado);
     });
   }

@@ -143,9 +143,9 @@ function atualizacaoFaixa(req, res) {
 
 }
 
-function buscarPorId(req, res) {
-    var id = req.params.id;
-    alunoModel.buscarPorId(id).then((resultado) => {
+function buscarPorFk(req, res) {
+    var professorId = req.params.professorId;
+    alunoModel.buscarPorFk(professorId).then((resultado) => {
       res.status(200).json(resultado);
     });
   }
@@ -158,12 +158,28 @@ function buscarPorId(req, res) {
     });
   }
 
+  function deletar(req, res){
+    var alunoId = req.body.alunoServer;
+    alunoModel.deletar(alunoId).then((resultado) => {
+      res.status(200).json(resultado);
+    });
+  }
+
+  function listarTotalAluno(req, res) {
+    var professorId = req.params.professorId;
+    alunoModel.listarTotalAluno(professorId).then((resultado) => {
+      res.status(200).json(resultado);
+    });
+  }
+
 module.exports = {
     cadastrar,
     listarAluno,
     atualizacao,
-    buscarPorId,
+    buscarPorFk,
     buscarPorNome,
     atualizacaoPeso,
-    atualizacaoFaixa
+    atualizacaoFaixa,
+    deletar,
+    listarTotalAluno
 }

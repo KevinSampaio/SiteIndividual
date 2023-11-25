@@ -10,14 +10,19 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap"
     rel="stylesheet" />
-  <link rel="stylesheet" href="../css/styles.css" />
+  <link rel="stylesheet" href="../css/styleDashboard.css" />
 </head>
 
-<body onload="listarAluno()">
+<body onload="validarSessao(), listarAluno()">
   <aside class="sidebar">
     <div class="sidebar-inner">
       <header class="sidebar-header">
         <button type="button" class="sidebar-burger" onclick="toggleSidebar()"></button>
+        <div class="hello">
+          <h3>Olá, <span id="b_usuario">usuário:</span>!
+            <span id="b_id_usuario">Id:</span>
+          </h3>
+        </div>
       </header>
       <nav class="sidebar-nav">
         <button type="button" onclick="home()">
@@ -320,6 +325,7 @@
 
   function sumirMensagem() {
     cardErro.style.display = "none";
+    window.location.reload()
   }
 
 </script>

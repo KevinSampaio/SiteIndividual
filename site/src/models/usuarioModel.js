@@ -22,8 +22,8 @@ function cadastrar(nome, cpf, email, senha, equipeId) {
     return database.executar(instrucao);
 }
 
-function listarUsuarios() {
-    var query = `select * from usuario`;
+function listarUsuarios(professorId) {
+    var query = `select * from usuario where id = '${professorId}'`;
   
     return database.executar(query);
   }
