@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="../css/styleDashboard.css" />
 </head>
 
-<body onload="validarSessao(), listarAluno()">
+<body onload="validarSessao(), listarAlunos()">
   <aside class="sidebar">
     <div class="sidebar-inner">
       <header class="sidebar-header">
@@ -115,6 +115,8 @@
 <script src="../js/sessao.js"></script>
 
 <script>
+    b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+    b_id_usuario.innerHTML = sessionStorage.ID_USUARIO;
   function atualizar() {
     aguardar();
 
@@ -310,9 +312,8 @@
   }
 
 
-
-  function listarAluno() {
-    fetch("/alunos/listarAluno", {
+  function listarAlunos() {
+    fetch(`/alunos/listarAlunos/${sessionStorage.ID_USUARIO}`, {
       method: "GET",
     })
       .then(function (resposta) {
