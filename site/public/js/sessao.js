@@ -9,6 +9,7 @@ function validarSessao() {
     if (nome != null && id != null) {
         b_usuario.innerHTML = nome;
         b_id_usuario.innerHTML = id;
+
     } else {
         window.location.href = "../login.html";
     }

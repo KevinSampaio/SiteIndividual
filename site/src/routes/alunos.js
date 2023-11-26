@@ -38,6 +38,33 @@ router.post("/deletar", function (req, res) {
 router.get("/listarTotalAluno/:professorId", function (req, res) {
     alunoController.listarTotalAluno(req, res);
 });
+router.get("/listarBranca/:professorId", function (req, res) {
+    alunoController.listarBranca(req, res);
+});
+router.get("/listarAzul/:professorId", function (req, res) {
+    alunoController.listarAzul(req, res);
+});
+router.get("/listarAmarela/:professorId", function (req, res) {
+    alunoController.listarAmarela(req, res);
+});
+router.get("/listarLaranja/:professorId", function (req, res) {
+    alunoController.listarLaranja(req, res);
+});
+router.get("/listarVerde/:professorId", function (req, res) {
+    alunoController.listarVerde(req, res);
+});
+router.get("/listarRoxa/:professorId", function (req, res) {
+    alunoController.listarRoxa(req, res);
+});
+router.get("/listarCandidato/:professorId", function (req, res) {
+    alunoController.listarCandidato(req, res);
+});
+
+router.get("/listarAlunos/:professorId", function (req, res) {
+    alunoController.listarAlunos(req, res);
+});
+
+
 
 
 module.exports = router;

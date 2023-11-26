@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="../css/styleDashboard.css" />
 </head>
 
-<body onload="validarSessao(), listarTotalAluno()">
+<body onload="validarSessao(), listarListas()">
   <aside class="sidebar">
     <div class="sidebar-inner">
       <header class="sidebar-header">
@@ -61,6 +61,45 @@
     <div class="boxes">
       <div class="alunos">Você possui um total de: <p name="Aluno" id="resultadoTotal"></p>alunos</div>
     </div>
+    <div class="boxes">
+      <div class="alunos">Você possui um total de: <p name="Aluno" id="resultadoBranca"></p> faixas Brancas</div>
+    </div>
+    <div class="boxes">
+      <div class="alunos">Você possui um total de: <p name="Aluno" id="resultadoAzul"></p> faixas Azul</div>
+    </div>
+    <div class="boxes">
+      <div class="alunos">Você possui um total de: <p name="Aluno" id="resultadoAmarelo"></p> faixas Amarelas</div>
+    </div>
+  </div>
+
+  <div class="box">
+    <img style="width: 150px; height: 100px;" src="../assets/totalAluno.png" alt="">
+    <img style="width: 200px; height: 100px;" src="../assets/faixaBranca.PNG" alt="">
+    <img style="width: 200px; height: 100px;" src="../assets/faixaAzul.PNG" alt="">
+    <img style="width: 200px; height: 100px;" src="../assets/faixaAmarela.PNG" alt="">
+  </div>
+
+  <div class="box">
+    <div class="boxes">
+      <div class="alunos">Você possui um total de: <p name="Aluno" id="resultadoLaranja"></p> faixas Laranjas</div>
+    </div>
+    <div class="boxes">
+      <div class="alunos">Você possui um total de: <p name="Aluno" id="resultadoVerde"></p> faixas Verde</div>
+    </div>
+    <div class="boxes">
+      <div class="alunos">Você possui um total de: <p name="Aluno" id="resultadoRoxa"></p> faixas Roxas</div>
+    </div>
+  <div class="boxes">
+    <div class="alunos">Você possui um total de: <p name="Aluno" id="resultadoCandidatos"></p>candidatos</div>
+  </div>
+</div>
+
+<div class="box2">
+  <img style="width: 200px; height: 100px;" src="../assets/faixaLaranja.PNG" alt="">
+  <img style="width: 200px; height: 100px;" src="../assets/faixaVerde.PNG" alt="">
+  <img style="width: 200px; height: 100px;" src="../assets/faixaRoxa.PNG" alt="">
+  <img style="width: 200px; height: 100px;" src="../assets/candidatos.PNG" alt="">
+</div>
 
 </body>
 
@@ -74,6 +113,17 @@
   b_id_usuario.innerHTML = sessionStorage.ID_USUARIO;
 
 
+  function listarListas(){
+    listarTotalAluno()
+    listarBranca()
+    listarAzul()
+    listarAmarela()
+    listarLaranja()
+    listarVerde()
+    listarRoxa()
+    listarCandidato()
+  }
+
   function listarTotalAluno() {
     fetch(`/alunos/listarTotalAluno/${sessionStorage.ID_USUARIO}`, {
       method: "GET",
@@ -82,6 +132,115 @@
         resposta.json().then((Aluno) => {
           Aluno.forEach((alunos) => {
             resultadoTotal.innerHTML = `${alunos.totalAluno}`;
+          });
+        });
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+      });
+  }
+
+  function listarBranca() {
+    fetch(`/alunos/listarBranca/${sessionStorage.ID_USUARIO}`, {
+      method: "GET",
+    })
+      .then(function (resposta) {
+        resposta.json().then((Aluno) => {
+          Aluno.forEach((alunos) => {
+            resultadoBranca.innerHTML = `${alunos.totalBranca}`;
+          });
+        });
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+      });
+  }
+  function listarAzul() {
+    fetch(`/alunos/listarAzul/${sessionStorage.ID_USUARIO}`, {
+      method: "GET",
+    })
+      .then(function (resposta) {
+        resposta.json().then((Aluno) => {
+          Aluno.forEach((alunos) => {
+            resultadoAzul.innerHTML = `${alunos.totalAzul}`;
+          });
+        });
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+      });
+  }
+  function listarAmarela() {
+    fetch(`/alunos/listarAmarela/${sessionStorage.ID_USUARIO}`, {
+      method: "GET",
+    })
+      .then(function (resposta) {
+        resposta.json().then((Aluno) => {
+          Aluno.forEach((alunos) => {
+            resultadoAmarelo.innerHTML = `${alunos.totalAmarela}`;
+          });
+        });
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+      });
+  }
+  function listarLaranja() {
+    fetch(`/alunos/listarLaranja/${sessionStorage.ID_USUARIO}`, {
+      method: "GET",
+    })
+      .then(function (resposta) {
+        resposta.json().then((Aluno) => {
+          Aluno.forEach((alunos) => {
+            resultadoLaranja.innerHTML = `${alunos.totalLaranja}`;
+          });
+        });
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+      });
+  }
+
+  function listarVerde() {
+    fetch(`/alunos/listarVerde/${sessionStorage.ID_USUARIO}`, {
+      method: "GET",
+    })
+      .then(function (resposta) {
+        resposta.json().then((Aluno) => {
+          Aluno.forEach((alunos) => {
+            resultadoVerde.innerHTML = `${alunos.totalVerde}`;
+          });
+        });
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+      });
+  }
+
+  function listarRoxa() {
+    fetch(`/alunos/listarRoxa/${sessionStorage.ID_USUARIO}`, {
+      method: "GET",
+    })
+      .then(function (resposta) {
+        resposta.json().then((Aluno) => {
+          Aluno.forEach((alunos) => {
+            resultadoRoxa.innerHTML = `${alunos.totalRoxa}`;
+          });
+        });
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+      });
+  }
+
+  function listarCandidato() {
+    fetch(`/alunos/listarCandidato/${sessionStorage.ID_USUARIO}`, {
+      method: "GET",
+    })
+      .then(function (resposta) {
+        resposta.json().then((Aluno) => {
+          Aluno.forEach((alunos) => {
+            resultadoCandidatos.innerHTML = `${alunos.totalCandidatos}`;
           });
         });
       })

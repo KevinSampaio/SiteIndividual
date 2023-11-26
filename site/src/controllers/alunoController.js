@@ -172,6 +172,64 @@ function buscarPorFk(req, res) {
     });
   }
 
+  function listarBranca(req, res) {
+    var professorId = req.params.professorId;
+    alunoModel.listarBranca(professorId).then((resultado) => {
+      res.status(200).json(resultado);
+    });
+  }
+
+  function listarAzul(req, res) {
+    var professorId = req.params.professorId;
+    alunoModel.listarAzul(professorId).then((resultado) => {
+      res.status(200).json(resultado);
+    });
+  }
+
+  function listarAmarela(req, res) {
+    var professorId = req.params.professorId;
+    alunoModel.listarAmarela(professorId).then((resultado) => {
+      res.status(200).json(resultado);
+    });
+  }
+
+  function listarLaranja(req, res) {
+    var professorId = req.params.professorId;
+    alunoModel.listarLaranja(professorId).then((resultado) => {
+      res.status(200).json(resultado);
+    });
+  }
+
+  function listarVerde(req, res) {
+    var professorId = req.params.professorId;
+    alunoModel.listarVerde(professorId).then((resultado) => {
+      res.status(200).json(resultado);
+    });
+  }
+
+  function listarRoxa(req, res) {
+    var professorId = req.params.professorId;
+    alunoModel.listarRoxa(professorId).then((resultado) => {
+      res.status(200).json(resultado);
+    });
+  }
+
+  function listarCandidato(req, res) {
+    var professorId = req.params.professorId;
+    alunoModel.listarCandidato(professorId).then((resultado) => {
+      res.status(200).json(resultado);
+    });
+  }
+
+
+  function listarAlunos(req, res) {
+    var professorId = req.params.professorId;
+    alunoModel.listarAlunos(professorId).then((resultado) => {
+      res.status(200).json(resultado);
+    });
+  }
+  
+
 module.exports = {
     cadastrar,
     listarAluno,
@@ -181,5 +239,13 @@ module.exports = {
     atualizacaoPeso,
     atualizacaoFaixa,
     deletar,
-    listarTotalAluno
+    listarTotalAluno,
+    listarCandidato,
+    listarBranca,
+    listarAzul,
+    listarAmarela,
+    listarLaranja,
+    listarVerde,
+    listarRoxa,
+    listarAlunos
 }

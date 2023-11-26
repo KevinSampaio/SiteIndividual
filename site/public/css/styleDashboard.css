@@ -144,6 +144,8 @@ body.open .sidebar button > span {
 .form-title {
   font-size: 2.2rem;
   font-weight: 600;
+  width: 100%;
+  text-align: center;
 }
 
 .form-sub-title {
@@ -161,6 +163,13 @@ body.open .sidebar button > span {
 
 .email {
   margin: 2em 0 2em;
+  align-items: center;
+}
+
+.selectDelete{
+  align-items: center;
+  text-align: center;
+  margin-top: 60px;
 }
 
 .input-container {
@@ -243,6 +252,7 @@ body.open .sidebar button > span {
 .loading-div {
   width: 50px;
   display: none;
+  margin-left: 10%;
 }
 
 .loading-div img {
@@ -317,7 +327,7 @@ main {
 
 .alunos{
   margin-left: 50px;
-  width: 250px;
+  width: 300px;
   height: 100px;
   color: black;
   text-align: center;
@@ -345,8 +355,28 @@ margin-right: 3px;
   display: flex;
   text-align: center;
   align-items: center;
-  margin-left: 5%;
-  margin-top: 5%;
+  margin-left: 4%;
+  margin-top: 50px;
+  justify-content: space-around;
+}
+
+.box2{
+  display: flex;
+  text-align: center;
+  align-items: center;
+  margin-left: 4%;
+  margin-top: 50px;
+  justify-content: space-around;
+}
+
+.box2 img{
+  margin-left: 3%;
+
+}
+
+.box img{
+  margin-left: 7%;
+  margin-top:0 ;
 }
 
 .email button{
@@ -355,7 +385,7 @@ margin-right: 3px;
 
 .dashboardaPrincipal{
 text-align: center;
-margin-left: 50%;
+margin-left: 47%;
 width: 200px;
 border: solid 1px #000000;
 border-radius: 10px;

@@ -69,6 +69,60 @@ function cadastrar(nome, dtNasc, faixa, peso, professorId, equipeId) {
         return database.executar(query);
       }
 
+      function listarBranca(professorId) {
+        var query = `select count(faixa) as totalBranca from aluno where faixa = 'Branca' AND fk_usuario = '${professorId}'`;
+      
+        return database.executar(query);
+      }
+
+      function listarAzul(professorId) {
+        var query = `select count(faixa) as totalAzul from aluno where faixa = 'Azul' AND fk_usuario = '${professorId}'`;
+      
+        return database.executar(query);
+      }
+
+      function listarAmarela(professorId) {
+        var query = `SELECT COUNT(*) AS totalAmarela FROM aluno 
+        WHERE (faixa LIKE '%amarelo%' OR faixa LIKE '%amarela%') 
+        AND fk_usuario = '${professorId}'`;
+      
+        return database.executar(query);
+      }
+
+      function listarLaranja(professorId) {
+        var query = `select count(faixa) as totalLaranja from aluno where faixa = 'Laranja' AND fk_usuario = '${professorId}'`;
+      
+        return database.executar(query);
+      }
+
+      function listarVerde(professorId) {
+        var query = `select count(faixa) as totalVerde from aluno where faixa = 'Verde' AND fk_usuario = '${professorId}'`;
+      
+        return database.executar(query);
+      }
+
+      function listarRoxa(professorId) {
+        var query = `SELECT COUNT(*) AS totalRoxa FROM aluno 
+        WHERE (faixa LIKE '%roxo%' OR faixa LIKE '%roxa%') 
+        AND fk_usuario = '${professorId}'`;
+      
+        return database.executar(query);
+      }
+
+      function listarCandidato(professorId) {
+        var query = `SELECT COUNT(*) AS totalCandidatos FROM aluno 
+        WHERE (faixa LIKE '%marrom%' OR faixa LIKE '%preta%' OR faixa LIKE '%preto%') 
+        AND fk_usuario = '${professorId}'`;
+      
+        return database.executar(query);
+      }
+
+      function listarAlunos(professorId) {
+        var query = `select * from aluno where fk_usuario = '${professorId}'`;
+      
+        return database.executar(query);
+      }
+
   module.exports = {
     cadastrar,
     listarAluno,
@@ -78,6 +132,14 @@ function cadastrar(nome, dtNasc, faixa, peso, professorId, equipeId) {
     atualizacaoPeso,
     atualizacaoFaixa,
     deletar,
-    listarTotalAluno
+    listarTotalAluno,
+    listarCandidato,
+    listarBranca,
+    listarAzul,
+    listarAmarela,
+    listarLaranja,
+    listarVerde,
+    listarRoxa,
+    listarAlunos
 };
 
