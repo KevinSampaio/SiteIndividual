@@ -23,3 +23,7 @@ function consultarIMC(){
 function sair(){
   window.location.href = "../login.html"
 }
+
+function treinoAleatorio(){
+  window.location.href = "treinoAleatorio.html"
+}

@@ -19,7 +19,7 @@ button {
   top: 0;
   left: 0;
   width: 72px;
-  height: 1100px;
+  height: 1300px;
   background: #383838;
   transition: width 0.4s;
 }
@@ -393,4 +393,9 @@ border-radius: 10px;
 
 .hello{
   color: #fff;
+}
+
+.final{
+width: 100%;
+text-align: center;
 }

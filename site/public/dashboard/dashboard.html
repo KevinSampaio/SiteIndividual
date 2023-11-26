@@ -8,9 +8,10 @@
   <title>Dashboard</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap"
-    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap"rel="stylesheet"/>
   <link rel="stylesheet" href="../css/styleDashboard.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
 </head>
 
 <body onload="validarSessao(), listarListas()">
@@ -44,6 +45,10 @@
         <button type="button" onclick="consultarIMC()">
           <img src="../assets/cuidados-de-saude.png" />
           <span style="animation-delay: 0.3s">IMC</span>
+        </button>
+        <button type="button" onclick="treinoAleatorio()">
+          <img src="../assets/treino.png" />
+          <span style="animation-delay: 0.3s">Treinos</span>
         </button>
       </nav>
       <footer class="sidebar-footer">
@@ -89,17 +94,30 @@
     <div class="boxes">
       <div class="alunos">Você possui um total de: <p name="Aluno" id="resultadoRoxa"></p> faixas Roxas</div>
     </div>
-  <div class="boxes">
-    <div class="alunos">Você possui um total de: <p name="Aluno" id="resultadoCandidatos"></p>candidatos</div>
+    <div class="boxes">
+      <div class="alunos">Você possui um total de: <p name="Aluno" id="resultadoCandidatos"></p>candidatos</div>
+    </div>
   </div>
-</div>
 
-<div class="box2">
-  <img style="width: 200px; height: 100px;" src="../assets/faixaLaranja.PNG" alt="">
-  <img style="width: 200px; height: 100px;" src="../assets/faixaVerde.PNG" alt="">
-  <img style="width: 200px; height: 100px;" src="../assets/faixaRoxa.PNG" alt="">
-  <img style="width: 200px; height: 100px;" src="../assets/candidatos.PNG" alt="">
-</div>
+  <div class="box2">
+    <img style="width: 200px; height: 100px;" src="../assets/faixaLaranja.PNG" alt="">
+    <img style="width: 200px; height: 100px;" src="../assets/faixaVerde.PNG" alt="">
+    <img style="width: 200px; height: 100px;" src="../assets/faixaRoxa.PNG" alt="">
+    <img style="width: 200px; height: 100px;" src="../assets/candidatos.PNG" alt="">
+  </div>
+
+  <div class="form-wrapper flex-container">
+    <div action="" class="form">
+        <h1>Alunos:</h1>
+        <div class="final" id="listaAluno"></div>
+        <div class="email">
+          <div class="input-container">
+            <div style="width: 400px; background-color: black; height: 1px;"></div>
+            <button onclick="window.print()">Imprimir</button>
+          </div>
+        </div>
+    </div>
+  </div>
 
 </body>
 
@@ -107,13 +125,11 @@
 
 <script src="../js/dashboards.js"></script>
 <script src="../js/sessao.js"></script>
-
 <script>
   b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
   b_id_usuario.innerHTML = sessionStorage.ID_USUARIO;
 
-
-  function listarListas(){
+  function listarListas() {
     listarTotalAluno()
     listarBranca()
     listarAzul()
@@ -122,6 +138,29 @@
     listarVerde()
     listarRoxa()
     listarCandidato()
+    listarAlunos()
+  }
+
+
+  function listarAlunos() {
+    fetch(`/alunos/listarAlunos/${sessionStorage.ID_USUARIO}`, {
+      method: "GET",
+    })
+      .then(function (resposta) {
+        resposta.json().then((Aluno) => {
+          Aluno.forEach((alunos) => {
+            listaAluno.innerHTML += `${alunos.nome} | Faixa: ${alunos.faixa}<br>`;
+          });
+        });
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+      });
+  }
+
+  function sumirMensagem() {
+    cardErro.style.display = "none";
+    window.location.reload()
   }
 
   function listarTotalAluno() {
