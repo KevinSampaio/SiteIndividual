@@ -47,17 +47,19 @@ insert into equipe (nomeEquipe, cnpj) values
 
 insert into usuario values
 (null, 'Kevin', '12345678901', 'kevin@kevin.com', '123456', 1);
-insert into usuario values
-(null, 'Kauan', '12345678908', 'kauan@kauan.com', '12345678', 2);
 
 
 insert into aluno (nome,dtNascimento,faixa, peso, fk_usuario, fk_equipe) values
-('Maryana Reis', '2000-01-01', 'Roxa','55',1,1);
+('Reis', '2000-01-01', 'Branca','95',1,1),
+('Roberto', '2000-01-01', 'Azul','85',1,1),
+('Kauan', '2000-01-01', 'Amarela','95',1,1),
+('Mary', '2000-01-01', 'Laranja','100',1,1),
+('Carlos', '2000-01-01', 'Verde','55',1,1),
+('Caio', '2000-01-01', 'Roxa','54',1,1),
+('Ana ', '2000-01-01', 'Marrom','59',1,1),
+('Maryana', '2000-01-01', 'Preta','54',1,1);
 
-insert into aluno (nome,dtNascimento,faixa, peso, fk_usuario, fk_equipe) values
-('Bruna Mole', '2000-02-02', 'Roxa','60',2,2);
-
-
+  
 select * from aluno;
 select * from usuario;
 select * from equipe;
