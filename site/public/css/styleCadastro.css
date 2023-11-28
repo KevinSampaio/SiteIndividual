@@ -14,8 +14,11 @@ body {
   color: #000000;
   overflow-x: hidden;
   font-family: "Poppins", sans-serif;
-  background-size: cover;
+  background-image: url(../assets/Design\ sem\ nome\ \(1\).png);
   background-repeat: no-repeat;
+  background-position: center ;
+  background-size: cover;
+  background-attachment: fixed;
   padding: 1em;
 }
 
@@ -34,6 +37,7 @@ nav {
   z-index: 2;
   justify-content: end;
   margin-bottom: 20px;
+
 }
 
 nav a {
@@ -47,7 +51,7 @@ nav a {
 
 nav img{
   width: 150px; 
-  height: 150px;
+  height: 120px;
   margin-right: 70%;
 }
 
@@ -146,7 +150,7 @@ a:hover {
   font-weight: 700;
   padding: 0.3em 1.8em;
   border-radius: 0.8em;
-  background: #7f60e8;
+  background: #383838;
   cursor: pointer;
   align-items: center;
 }
