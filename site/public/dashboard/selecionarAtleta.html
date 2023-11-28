@@ -98,7 +98,14 @@
           <button onclick="atualizarPeso()"> Atualizar Peso
         </div>
       </div>
-      <br>
+      <div class="email">
+        <div class="input-container">
+          <p>CEP:</p>
+          <input id="cep_input" placeholder="Exemplo: 08485503">
+          <button onclick="inserirCep()"> Inserir CEP
+        </div>
+      </div>
+
     </div>
     <div id="div_aguardar" class="loading-div">
       <img src="../assets/aguarde-pink2.gif" id="loading-gif" />
@@ -310,6 +317,74 @@
         finalizarAguardar();
       });
   }
+
+  function inserirCep() {
+    aguardar();
+
+    //Recupere o valor da nova input pelo nome do id
+    // Agora vá para o método fetch logo abaixo
+    var cepAluno = cep_input.value;
+    var alunoId = listaAluno.value;
+   
+    if (
+      cepAluno == "" ||
+      alunoId == ""
+    ) {
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML =
+        "(Mensagem de erro para todos os campos em branco)";
+
+      finalizarAguardar();
+      return false;
+
+    } else if (cepAluno == "") {
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML =
+        "(Insira uma Peso)";
+      finalizarAguardar();
+      return false;
+
+    } else {
+      setInterval(sumirMensagem, 5000);
+    }
+
+    console.log("Testye  ");
+    // Enviando o valor da nova input
+    fetch("/alunos/inserirCep", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        // crie um atributo que recebe o valor recuperado aqui
+        // Agora vá para o arquivo routes/usuario.js
+        alunoServer: alunoId,
+        cepServer: cepAluno
+      }),
+    })
+      .then(function (resposta) {
+        console.log("resposta: ", resposta);
+
+        if (resposta.ok) {
+          cardErro.style.display = "block";
+
+          mensagem_erro.innerHTML =
+            "Endereço inserido com sucesso!";
+
+          limparFormulario();
+          finalizarAguardar();
+        } else {
+          throw "Houve um erro ao tentar realizar ao inserir o endereco!";
+        }
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+        finalizarAguardar();
+      });
+  }
+  
+
+  
 
 
   function listarAlunos() {

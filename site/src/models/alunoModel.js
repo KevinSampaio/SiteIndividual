@@ -18,6 +18,15 @@ function cadastrar(nome, dtNasc, faixa, peso, professorId, equipeId) {
       return database.executar(query);
     }
 
+    function inserirCep( cep, alunoId) {
+  
+      console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():");
+    
+      var query = `insert into endereco (cep, fk_aluno) values ('${cep}', '${alunoId}')`;
+      
+        return database.executar(query);
+      }
+
     function atualizacaoFaixa(faixa, alunoId) {
   
       console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():",faixa,);
@@ -140,6 +149,7 @@ function cadastrar(nome, dtNasc, faixa, peso, professorId, equipeId) {
     listarLaranja,
     listarVerde,
     listarRoxa,
-    listarAlunos
+    listarAlunos,
+    inserirCep
 };
 

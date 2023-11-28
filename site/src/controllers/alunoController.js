@@ -143,6 +143,38 @@ function atualizacaoFaixa(req, res) {
 
 }
 
+
+function inserirCep(req, res) {
+  var alunoId = req.body.alunoServer;
+  var cep = req.body.cepServer;
+
+  if (alunoId == undefined) {
+      res.status(400).send("Seu dtNasc está undefined!");
+  } else if (cep == undefined) {
+      res.status(400).send("Sua faixa está undefined!");
+  }else {
+
+      // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
+      alunoModel.inserirCep(cep, alunoId)
+          .then(
+              function (resultado) {
+                  res.json(resultado);
+              }
+          ).catch(
+              function (erro) {
+                  console.log(erro);
+                  console.log(
+                      "\nHouve um erro ao realizar a troca! Erro: ",
+                      erro.sqlMessage
+                  );
+                  res.status(500).json(erro.sqlMessage);
+              }
+          );
+  }
+
+
+}
+
 function buscarPorFk(req, res) {
     var professorId = req.params.professorId;
     alunoModel.buscarPorFk(professorId).then((resultado) => {
@@ -247,5 +279,6 @@ module.exports = {
     listarLaranja,
     listarVerde,
     listarRoxa,
-    listarAlunos
+    listarAlunos,
+    inserirCep
 }

@@ -19,6 +19,11 @@ router.post("/atualizacaoFaixa", function (req, res) {
     alunoController.atualizacaoFaixa(req, res);
 })
 
+router.post("/inserirCep", function (req, res) {
+    alunoController.inserirCep(req, res);
+})
+
+// router = gets
 router.get("/listarAluno", function (req, res) {
     alunoController.listarAluno(req, res);
 });
